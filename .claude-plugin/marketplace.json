@@ -7,8 +7,13 @@
   "plugins": [
     {
       "name": "personal-data-protection",
-      "source": ".",
-      "description": "SEA personal-data-protection compliance reference for engineers — Singapore PDPA, Thailand PDPA, Indonesia UU PDP. Tech-agnostic, organised by where in the stack each obligation lands rather than by statute section. Reference material, not legal advice."
+      "description": "SEA personal-data-protection compliance reference for engineers — Singapore PDPA, Thailand PDPA, Indonesia UU PDP. Tech-agnostic, organised by where in the stack each obligation lands rather than by statute section. Reference material, not legal advice.",
+      "category": "compliance",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/AltByteSG/personal-data-protection-skill.git"
+      },
+      "homepage": "https://github.com/AltByteSG/personal-data-protection-skill"
     }
   ]
 }

@@ -8,6 +8,15 @@ Each release records the statute versions reflected in the content. When a statu
 
 — No unreleased changes.
 
+## [0.2.2] — 2026-05-03
+
+Fixes the marketplace `source` field so `claude plugin install` actually works. v0.2.1's `"source": "."` was rejected by the CLI as "source type your Claude Code version does not support."
+
+### Changed
+
+- [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json): replaced `"source": "."` with the official `{ "source": "url", "url": "..." }` object form used by the Anthropic-curated marketplace. Same effect (clones this repo and treats the whole repo as the plugin), but matches the documented schema the CLI accepts.
+- Added `category: "compliance"` and `homepage` fields for marketplace listing.
+
 ## [0.2.1] — 2026-05-03
 
 Adds a marketplace manifest so the plugin is installable via `claude plugin marketplace add` + `claude plugin install` without waiting for the official Anthropic marketplace approval.
@@ -96,7 +105,8 @@ Initial release.
 | Thailand PDPA B.E. 2562 (2019) | Original 2019 text (PDPC Thailand English translation) | 2026-05-03 |
 | Indonesia UU PDP No. 27/2022 | Original 2022 enactment (Bahasa Indonesia binding text) | 2026-05-03 |
 
-[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.2.2
 [0.2.1]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.2.1
 [0.2.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.2.0
 [0.1.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.1.0
