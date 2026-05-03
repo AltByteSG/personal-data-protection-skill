@@ -133,6 +133,10 @@ The next minor release (v0.3) adds three more SEA jurisdictions. See [CHANGELOG.
 
 See [DISCLAIMER.md](DISCLAIMER.md). **This skill is reference material, not legal advice.** Always verify against the official statute and consult a qualified Data Protection Officer (DPO) or lawyer before relying on it for compliance decisions.
 
+## Privacy
+
+See [PRIVACY.md](PRIVACY.md). **This skill collects no data.** It is documentation, not running software — no telemetry, no source-code transmission, no usage tracking by the maintainers.
+
 ## Contributing
 
 Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Particularly valued:
