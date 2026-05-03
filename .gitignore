@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Python (used for tooling scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+secrets/
+
+# Build / temp
+tmp/
+temp/
+*.log
+
+# OS junk
+Thumbs.db
+desktop.ini
+
+# Local notes (don't accidentally commit working drafts)
+NOTES.md
+TODO.md
+SCRATCH.md
