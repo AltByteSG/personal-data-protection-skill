@@ -8,6 +8,23 @@ Each release records the statute versions reflected in the content. When a statu
 
 — No unreleased changes.
 
+## [0.2.1] — 2026-05-03
+
+Adds a marketplace manifest so the plugin is installable via `claude plugin marketplace add` + `claude plugin install` without waiting for the official Anthropic marketplace approval.
+
+### Added
+
+- [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) — single-plugin marketplace manifest naming this repo as the `altbyte-plugins` marketplace and exposing `personal-data-protection` as its sole plugin.
+
+### Install (once the marketplace is added)
+
+```bash
+claude plugin marketplace add AltByteSG/personal-data-protection-skill
+claude plugin install personal-data-protection@altbyte-plugins
+```
+
+This is the working install path before the official Anthropic marketplace lists the plugin. Once the official marketplace lists it, `claude plugin install personal-data-protection@claude-plugins-official` will also work — both paths can coexist.
+
 ## [0.2.0] — 2026-05-03
 
 Repo restructured as a Claude Code plugin to enable distribution via the official Anthropic plugin marketplace ([platform.claude.com/plugins](https://platform.claude.com/plugins)). No content changes — same SG / TH / ID jurisdictions, same layers, same checklists, same templates as v0.1.0.
@@ -79,6 +96,7 @@ Initial release.
 | Thailand PDPA B.E. 2562 (2019) | Original 2019 text (PDPC Thailand English translation) | 2026-05-03 |
 | Indonesia UU PDP No. 27/2022 | Original 2022 enactment (Bahasa Indonesia binding text) | 2026-05-03 |
 
-[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.2.1
 [0.2.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.2.0
 [0.1.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.1.0

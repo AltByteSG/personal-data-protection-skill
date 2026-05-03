@@ -1,0 +1,14 @@
+{
+  "name": "altbyte-plugins",
+  "description": "AltByte's open-source Claude Code / Cowork plugins.",
+  "owner": {
+    "name": "AltByte"
+  },
+  "plugins": [
+    {
+      "name": "personal-data-protection",
+      "source": ".",
+      "description": "SEA personal-data-protection compliance reference for engineers — Singapore PDPA, Thailand PDPA, Indonesia UU PDP. Tech-agnostic, organised by where in the stack each obligation lands rather than by statute section. Reference material, not legal advice."
+    }
+  ]
+}

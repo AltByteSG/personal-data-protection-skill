@@ -45,21 +45,22 @@ For the section-by-section walkthrough, see [`skills/personal-data-protection/ju
 
 The repo is laid out as a Claude Code **plugin** — skill content lives under [`skills/personal-data-protection/`](skills/personal-data-protection/). Three install paths depending on your tool:
 
-### Claude Code — via the plugin marketplace (preferred, when approved)
-
-```
-/plugin install AltByteSG/personal-data-protection-skill
-```
-
-Claude Code reads [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) and auto-discovers the skill at `skills/personal-data-protection/`. Verify with `/plugin list` and `/skills`.
-
-### Claude Code — direct clone (no marketplace)
+### Claude Code / Claude Cowork — via this repo's marketplace (works today)
 
 ```bash
-git clone https://github.com/AltByteSG/personal-data-protection-skill.git ~/.claude/plugins/personal-data-protection-skill
+claude plugin marketplace add AltByteSG/personal-data-protection-skill
+claude plugin install personal-data-protection@altbyte-plugins
 ```
 
-Same plugin layout, just sourced manually. Restart Claude Code so it picks up the plugin.
+The repo carries a [`marketplace.json`](.claude-plugin/marketplace.json) so it works as a single-plugin marketplace. Verify with `claude plugin list`.
+
+### Claude Code / Claude Cowork — via the official Anthropic marketplace (once approved)
+
+```
+/plugin install personal-data-protection@claude-plugins-official
+```
+
+Pending Anthropic review of the submission. Both install paths can coexist — pick one.
 
 ### Codex CLI / Cursor / Copilot
 
