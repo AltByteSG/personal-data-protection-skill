@@ -4,7 +4,7 @@
 
 A Claude Code [skill](https://docs.claude.com/en/docs/claude-code/skills) that helps engineers build and maintain personal-data-protection-compliant applications, organised by where in the stack each obligation lands rather than by statute section number.
 
-**Status:** v0.1.0 — Singapore PDPA, Thailand PDPA, and Indonesia UU PDP all populated.
+**Status:** v0.2.0 — Singapore PDPA, Thailand PDPA, and Indonesia UU PDP all populated. Repo is now packaged as a Claude Code plugin (skill content under `skills/personal-data-protection/`); installable via `/plugin install` or direct clone. Malaysia / Philippines / Vietnam planned for v0.3.
 
 **Audience:** anyone building any app that handles personal data of users in Singapore, Thailand, or Indonesia. Tech-agnostic — works whether your stack is Supabase, Firebase, AWS, your own backend, native iOS/Android, Flutter, React Native, web, or anything else.
 
@@ -39,41 +39,55 @@ Areas where the three regimes are **equivalent** at the app level (consent captu
 
 **How to use this table:** find the row matching what your app already does (or is about to do). Read across — if the per-jurisdiction columns are the same, you ship one implementation. If they differ, you either build the strictest version (covers all) or branch by user jurisdiction (more code, more nuanced UX).
 
-For the section-by-section walkthrough, see [`jurisdictions/`](jurisdictions/) and [`jurisdictions/_index.md`](jurisdictions/_index.md).
+For the section-by-section walkthrough, see [`skills/personal-data-protection/jurisdictions/`](skills/personal-data-protection/jurisdictions/) and [`skills/personal-data-protection/jurisdictions/_index.md`](skills/personal-data-protection/jurisdictions/_index.md).
 
 ## Install
 
-Clone into the directory your agent expects:
+The repo is laid out as a Claude Code **plugin** — skill content lives under [`skills/personal-data-protection/`](skills/personal-data-protection/). Three install paths depending on your tool:
 
-```bash
-git clone https://github.com/AltByteSG/personal-data-protection-skill.git <destination>
+### Claude Code — via the plugin marketplace (preferred, when approved)
+
+```
+/plugin install AltByteSG/personal-data-protection-skill
 ```
 
-| Agent | `<destination>` | Discovery |
-|---|---|---|
-| Claude Code | `.claude/skills/personal-data-protection` | Auto-registers via [`SKILL.md`](SKILL.md). Verify with `claude /skills`. |
-| Codex CLI | `.codex/skills/personal-data-protection` | Reference [`AGENTS.md`](AGENTS.md) from your project's top-level `AGENTS.md` (snippet below). |
-| Cursor / Copilot | anywhere in the repo | Reference [`AGENTS.md`](AGENTS.md) from your `.cursorrules` or `.github/copilot-instructions.md` (same snippet). |
+Claude Code reads [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) and auto-discovers the skill at `skills/personal-data-protection/`. Verify with `/plugin list` and `/skills`.
 
-For Codex / Cursor / Copilot, add a single line to your existing project-instruction file:
+### Claude Code — direct clone (no marketplace)
+
+```bash
+git clone https://github.com/AltByteSG/personal-data-protection-skill.git ~/.claude/plugins/personal-data-protection-skill
+```
+
+Same plugin layout, just sourced manually. Restart Claude Code so it picks up the plugin.
+
+### Codex CLI / Cursor / Copilot
+
+```bash
+git clone https://github.com/AltByteSG/personal-data-protection-skill.git ~/.tools/personal-data-protection-skill
+```
+
+Then add a single line to your project's existing `AGENTS.md` / `.cursorrules` / `.github/copilot-instructions.md`:
 
 ```markdown
-For personal-data-protection compliance, follow the guidance in
-<destination>/AGENTS.md
+For personal-data-protection compliance, follow
+~/.tools/personal-data-protection-skill/AGENTS.md
 ```
 
-To pin a specific upstream version after cloning:
+The root [`AGENTS.md`](AGENTS.md) routes the agent into the skill content under `skills/personal-data-protection/`.
+
+### Pin a specific upstream version
 
 ```bash
-cd <destination> && git checkout v0.1.0
+cd <clone-path> && git checkout v0.2.0
 ```
 
 ## Adapt to your project
 
-Two templates ship in [`templates/`](templates/). Setup instructions are in each file's header.
+Two templates ship in [`skills/personal-data-protection/templates/`](skills/personal-data-protection/templates/). Setup instructions are in each file's header.
 
-- **[`INCIDENT_RESPONSE.md.template`](templates/INCIDENT_RESPONSE.md.template)** — *works with any agent.* Solo / small-team breach runbook. Copy to your project's `docs/` folder and fill in the `{{PLACEHOLDERS}}` (DPO contact, vendor list, jurisdictions).
-- **[`pdp-nudge.sh.template`](templates/pdp-nudge.sh.template)** — **Claude Code only.** Auto-nudges Claude into this skill on edits to PDP-sensitive paths via a `PostToolUse` hook. Codex CLI, Cursor, and Copilot do not have an equivalent hook system at time of writing, so this template is not portable — manual diligence on PDP-sensitive paths is the substitute on those agents.
+- **[`INCIDENT_RESPONSE.md.template`](skills/personal-data-protection/templates/INCIDENT_RESPONSE.md.template)** — *works with any agent.* Solo / small-team breach runbook. Copy to your project's `docs/` folder and fill in the `{{PLACEHOLDERS}}` (DPO contact, vendor list, jurisdictions).
+- **[`pdp-nudge.sh.template`](skills/personal-data-protection/templates/pdp-nudge.sh.template)** — **Claude Code only.** Auto-nudges Claude into this skill on edits to PDP-sensitive paths via a `PostToolUse` hook. Codex CLI, Cursor, and Copilot do not have an equivalent hook system at time of writing, so this template is not portable — manual diligence on PDP-sensitive paths is the substitute on those agents.
 
 ## Versioning
 
@@ -109,7 +123,7 @@ This skill summarises and references the following statutes. Always defer to the
 
 ### Planned for v0.2 — additional SEA jurisdictions
 
-The next minor release adds three more SEA jurisdictions. See [CHANGELOG.md](CHANGELOG.md) and [`jurisdictions/_index.md`](jurisdictions/_index.md). Until v0.2 ships, these regimes are listed here for awareness only and are **not yet covered** by this skill.
+The next minor release (v0.3) adds three more SEA jurisdictions. See [CHANGELOG.md](CHANGELOG.md) and [`skills/personal-data-protection/jurisdictions/_index.md`](skills/personal-data-protection/jurisdictions/_index.md). Until v0.3 ships, these regimes are listed here for awareness only and are **not yet covered** by this skill.
 
 - **Malaysia — Personal Data Protection Act 2010 (with the 2024 Amendments).** Regulator: Jabatan Perlindungan Data Peribadi (JPDP). The 2024 amendments introduce mandatory DPO designation, mandatory breach notification, data portability, and significantly raised penalties.
 - **Philippines — Data Privacy Act 2012 (Republic Act 10173).** Regulator: National Privacy Commission (NPC) — [privacy.gov.ph](https://privacy.gov.ph). NPC Circular 16-03 governs breach notification (72-hour window).
@@ -123,7 +137,7 @@ See [DISCLAIMER.md](DISCLAIMER.md). **This skill is reference material, not lega
 
 Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Particularly valued:
 
-- Malaysia PDPA, Philippines DPA, and Vietnam PDPD jurisdiction content (v0.2 milestone)
+- Malaysia PDPA, Philippines DPA, and Vietnam PDPD jurisdiction content (v0.3 milestone)
 - Stack-specific implementation examples for the layer files (without coupling the layer text itself to any stack)
 - Real-world incident-response notes that generalise
 

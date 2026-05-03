@@ -6,7 +6,35 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
-### Planned for v0.2 — additional SEA jurisdictions
+— No unreleased changes.
+
+## [0.2.0] — 2026-05-03
+
+Repo restructured as a Claude Code plugin to enable distribution via the official Anthropic plugin marketplace ([platform.claude.com/plugins](https://platform.claude.com/plugins)). No content changes — same SG / TH / ID jurisdictions, same layers, same checklists, same templates as v0.1.0.
+
+### Changed
+
+- **Layout:** all skill content (`SKILL.md`, `layers/`, `jurisdictions/`, `checklists/`, `templates/`) moved from the repo root into `skills/personal-data-protection/`. Required by the plugin loader, which only auto-discovers skills in a `skills/<name>/` subdirectory at the plugin root.
+- **Plugin manifest:** added [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) declaring the plugin name, version, author, repository, license, and keywords. Required by the plugin loader.
+- **Relative-path links:** the 41 markdown / template files inside the skill folder had their links to root-level meta files (`DISCLAIMER.md`, `LICENSE`, `CHANGELOG.md`, etc.) repointed by 2 additional `../` hops. No content was edited.
+- **Root files:** `README.md`, `LICENSE`, `DISCLAIMER.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`, `AGENTS.md`, and `.gitignore` remain at the repo root. `AGENTS.md`'s internal links updated to point into the new `skills/personal-data-protection/` subdirectory so Codex CLI / Cursor / Copilot still work.
+- **README install section:** rewritten around three install paths — Claude Code via `/plugin install`, Claude Code via direct clone, and Codex / Cursor / Copilot via clone-and-reference.
+
+### Migration notes for v0.1.0 users
+
+- The bare-clone-into-`.claude/skills/` install pattern from v0.1.0 no longer works. Use the new install paths in [`README.md`](README.md#install).
+- If you cloned v0.1.0 manually, either re-clone or pin to the `v0.1.0` tag — the v0.1.0 layout is preserved at that tag.
+- All content (statute citations, layer guidance, checklists) is byte-for-byte identical to v0.1.0.
+
+### Statute coverage matrix (unchanged from v0.1.0)
+
+| Jurisdiction | Statute version | Last verified |
+|---|---|---|
+| Singapore PDPA 2012 | Current as at 1 May 2026 (reflects 2020 Amendments) | 2026-05-03 |
+| Thailand PDPA B.E. 2562 (2019) | Original 2019 text (PDPC Thailand English translation) | 2026-05-03 |
+| Indonesia UU PDP No. 27/2022 | Original 2022 enactment (Bahasa Indonesia binding text) | 2026-05-03 |
+
+### Planned for v0.3 — additional SEA jurisdictions
 
 | Jurisdiction | Code | Statute | Regulator |
 |---|---|---|---|
@@ -51,5 +79,6 @@ Initial release.
 | Thailand PDPA B.E. 2562 (2019) | Original 2019 text (PDPC Thailand English translation) | 2026-05-03 |
 | Indonesia UU PDP No. 27/2022 | Original 2022 enactment (Bahasa Indonesia binding text) | 2026-05-03 |
 
-[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.2.0
 [0.1.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.1.0

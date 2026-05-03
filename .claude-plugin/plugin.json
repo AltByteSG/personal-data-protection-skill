@@ -1,0 +1,22 @@
+{
+  "name": "personal-data-protection",
+  "description": "Singapore PDPA, Indonesia UU PDP 27/2022, and Thailand PDPA B.E. 2562 (2019) compliance reference for engineers — tech-agnostic, organised by where in the stack each obligation lands rather than by statute section number. Reference material only, not legal advice.",
+  "version": "0.2.0",
+  "author": {
+    "name": "AltByte",
+    "url": "https://github.com/AltByteSG"
+  },
+  "homepage": "https://github.com/AltByteSG/personal-data-protection-skill",
+  "repository": "https://github.com/AltByteSG/personal-data-protection-skill",
+  "license": "MIT",
+  "keywords": [
+    "pdpa",
+    "privacy",
+    "compliance",
+    "data-protection",
+    "singapore",
+    "thailand",
+    "indonesia",
+    "southeast-asia"
+  ]
+}
