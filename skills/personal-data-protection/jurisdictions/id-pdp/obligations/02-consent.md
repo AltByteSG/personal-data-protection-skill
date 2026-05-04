@@ -107,7 +107,7 @@ The Act doesn't specify the age threshold — defers to other Indonesian law. Pr
 
 **Implementation layer:** [05 Feature/UX](../../../layers/05-feature-ux.md) (accessibility, alternative consent channels).
 
-This is unique to Indonesia among the three jurisdictions covered. Operationalisation depends on the application context (screen reader compatibility, alternative formats, etc.).
+This is unique to Indonesia among the four jurisdictions covered. Operationalisation depends on the application context (screen reader compatibility, alternative formats, etc.).
 
 ## Penalty exposure (this Part)
 

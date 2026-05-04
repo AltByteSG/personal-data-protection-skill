@@ -8,19 +8,20 @@ Solo / small-team operator runbook for responding to a personal data incident un
 
 **DPO / responder:** {{DPO_NAME}} — {{DPO_EMAIL}}
 **Backup contact:** {{BACKUP_NAME}} — {{BACKUP_EMAIL}}
-**Active jurisdictions:** {{JURISDICTIONS — e.g. Singapore PDPA / Indonesia UU PDP / Thailand PDPA}}
+**Active jurisdictions:** {{JURISDICTIONS — e.g. Singapore PDPA / Indonesia UU PDP / Thailand PDPA / Malaysia PDPA}}
 
 ## Statutory clocks
 
 For each active jurisdiction, the deadline to notify the regulator after assessing the incident as notifiable:
 
-| Jurisdiction | Authority | Notification window | Portal |
-|---|---|---|---|
-| Singapore PDPA | PDPC | **3 calendar days** (s26D(1)) | https://eservice.pdpc.gov.sg/case/db |
-| Indonesia UU PDP | (appointed authority) | 72 hours (verify against current regs) | (verify) |
-| Thailand PDPA | PDPC Thailand | 72 hours (verify against current regs) | https://www.pdpc.or.th |
+| Jurisdiction | Authority | Notification window | Subject notification | Portal |
+|---|---|---|---|---|
+| Singapore PDPA | PDPC | **3 calendar days** (s26D(1)) — clock starts at **assessment** | On or after authority notification, where significant harm | https://eservice.pdpc.gov.sg/case/db |
+| Indonesia UU PDP | (appointed authority) | 72 hours from awareness (Pasal 46(1)) — verify against current regs | **All breaches** notify subject; "certain circumstances" trigger public notification | (verify) |
+| Thailand PDPA | PDPC Thailand | 72 hours from awareness (s37(4)) — verify against current regs | If "high risk to rights and freedoms" | https://www.pdpc.or.th |
+| Malaysia PDPA | Commissioner / JPDP | **72 hours** from discovery (s12B(1) + JPDP Guideline 25 Feb 2025) | **Within 7 days** of Commissioner notification, where significant harm (s12B(2)) | JPDP Personal Data Protection System (https://www.pdp.gov.my) |
 
-The clock starts at **assessment**, not at occurrence.
+For SG the clock starts at **assessment**; for TH / ID / MY it starts at **awareness / discovery** of the breach. If multiple jurisdictions are active, the strictest clock controls — typically MY/TH/ID's awareness-based 72h beats SG's assessment-based 3-day window.
 
 ---
 
@@ -92,9 +93,15 @@ Run the assessment **per active jurisdiction**. The strictest "notifiable" deter
 
 **Tech-measure exception (s26D(5)):** if encryption / hashing / fast revocation rendered significant harm unlikely, **individual** notification may not be required — but **PDPC notification still is**.
 
-### Indonesia UU PDP / Thailand PDPA (if active)
+### Indonesia UU PDP / Thailand PDPA / Malaysia PDPA (if active)
 
-Both follow a 72-hour authority notification window. Verify the current text of each statute and any subordinate regulations for the notifiability test, and consult a qualified local lawyer.
+All three operate on a **72-hour authority notification window** from awareness/discovery (faster than SG's 3-day post-assessment clock).
+
+- **Indonesia (Pasal 46):** notify **both** subject AND regulator within 72h. Subject notification is required for **all** breaches, not just high-risk ones. "Certain circumstances" (e.g. systemic risk, large scale) trigger public notification.
+- **Thailand (s37):** 72h to PDPC Thailand. Subject notification required if breach is "high risk to rights and freedoms" of the data subject.
+- **Malaysia (s12B(1) + JPDP Guideline 25 Feb 2025):** 72h to Commissioner from discovery; subject notification within **7 days** of Commissioner notification where the breach causes or is likely to cause significant harm (s12B(2)). Submit via JPDP Personal Data Protection System.
+
+Verify the current text of each statute, the subordinate regulations / guidelines for the notifiability test, and consult a qualified local lawyer.
 
 ### Decision
 
@@ -132,9 +139,9 @@ Save the submission receipt in the incident log.
 
 If a SG law-enforcement agency or PDPC instructs you to delay individual notification (s26D(6)), record the instruction and pause section 5.
 
-### Indonesia / Thailand
+### Indonesia / Thailand / Malaysia
 
-Use the relevant authority's portal and form. Verify current requirements at the time of incident.
+Use the relevant authority's portal and form. For **Malaysia**, file via the JPDP Personal Data Protection System within 72 hours of discovery (s12B(1)); the JPDP Guideline on Data Breach Notification (25 Feb 2025) sets the form/content. If the assessment is incomplete at H+72, submit a preliminary notification within the window and supplement later. For **Indonesia** and **Thailand**, verify the current portal and form at the time of incident.
 
 ---
 
@@ -203,16 +210,17 @@ When user count grows past beta, add at minimum:
 
 ## Quick reference
 
-| Obligation | Singapore PDPA | Indonesia UU PDP | Thailand PDPA |
-|---|---|---|---|
-| Conduct assessment | Reasonable + expeditious (≤30d guidance) | Per current regs | Per current regs |
-| Notify regulator after assessment concludes notifiable | **3 calendar days** (s26D(1)) | 72 hours | 72 hours |
-| Notify affected individuals where significant harm | On or after authority notification | Per current regs | Per current regs |
-| Suspend user notification on law-enforcement direction | Yes (s26D(6)) | Per current regs | Per current regs |
-| Vendor-as-intermediary notifies controller | Without undue delay (s26C(3)) | Per current regs | Per current regs |
+| Obligation | Singapore PDPA | Indonesia UU PDP | Thailand PDPA | Malaysia PDPA |
+|---|---|---|---|---|
+| Conduct assessment | Reasonable + expeditious (≤30d guidance) | Per current regs | Per current regs | "As soon as practicable" — 72h benchmark per JPDP Guideline |
+| Notify regulator after assessment concludes notifiable | **3 calendar days** (s26D(1)) | 72 hours from awareness | 72 hours from awareness | **72 hours** from discovery (s12B(1) + JPDP Guideline) |
+| Notify affected individuals where significant harm | On or after authority notification | All breaches notify subject (Pasal 46) | Per current regs | **Within 7 days** of Commissioner notification (s12B(2) + JPDP Guideline) |
+| Suspend user notification on law-enforcement direction | Yes (s26D(6)) | Per current regs | Per current regs | Per Commissioner direction |
+| Vendor-as-intermediary / processor notifies controller | Without undue delay (s26C(3)) | Per current regs | s40 — without delay | Vendor DPA must require ≤24h flow-down so controller hits 72h s12B clock |
 
 Penalty for breach of breach-notification obligations:
 
 - **Singapore PDPA:** up to SGD 1M for orgs ≤ SGD 10M SG turnover; **10% of SG turnover** above (s48J(3))
 - **Indonesia UU PDP:** up to 2% of annual revenue
 - **Thailand PDPA:** up to THB 5M administrative + criminal penalties for severe violations
+- **Malaysia PDPA:** failure to notify Commissioner — **RM 250,000 / 2 years** (s12B(3)). Underlying Security Principle (s9) breach attracts **RM 1M / 3 years** (s5(2) post-A1727); director-deeming liability under s133 applies

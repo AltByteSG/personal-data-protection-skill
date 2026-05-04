@@ -40,21 +40,16 @@ The Act doesn't define "Personal Data breach" as a separate term — but s37(1) 
 
 ## Risk-to-rights-and-freedoms assessment
 
-**Factors PDPC has emphasised in guidance:**
-
-- **Type of data**: sensitive data (s26 categories) almost always rises to high-risk
-- **Volume**: large-scale breaches more likely to be high-risk
-- **Identifiability**: easily-reversible pseudonymisation does not reduce risk
-- **Vulnerability of affected subjects**: minors, patients, etc. raise risk
-- **Nature of misuse possible**: identity theft potential, financial fraud, physical safety
-
 **High-risk indicators (data subject notification required):**
+
 - Sensitive data (s26) leaked at any scale
 - Authentication credentials leaked in a form usable for account takeover
 - Health / medical data leaked
 - Children's data leaked
 - Financial data leaked
 - Data enabling identity theft (national ID, government ID, etc.)
+
+Other inputs to the assessment: volume of affected subjects, identifiability (easily-reversible pseudonymisation does not reduce risk), vulnerability of the cohort (minors, patients), and the realistic misuse path (identity theft, financial fraud, physical safety).
 
 When in doubt, notify both PDPC and affected individuals. Over-notification is recoverable; under-notification is a strict-liability breach.
 

@@ -22,7 +22,7 @@ If no → not a sub-processor → no privacy-policy disclosure needed (but still
 - [ ] Signed / accepted Data Processing Agreement (DPA) is in place.
 - [ ] DPA covers the active jurisdictions explicitly OR provides "comparable protection" sufficient for the active jurisdictions' transfer obligations.
 - [ ] Sub-sub-processors that the vendor uses are acceptable / disclosed by them.
-- [ ] DPA includes a breach-notification clause requiring them to notify you "without undue delay" (Singapore PDPA s26C(3) equivalent).
+- [ ] DPA includes a breach-notification flow-down clause requiring the vendor to notify you with enough lead time for you to hit the strictest active clock — typically **≤24 hours from the vendor's discovery** so you can still file the MY 72h s12B(1) Commissioner notification, the TH/ID 72h authority notification, or the SG 3-day post-assessment notification (s26C(3)).
 - [ ] DPA covers the data residency you need.
 
 ## 3. Architecture ([layer 02](../layers/02-architecture.md))
@@ -49,7 +49,9 @@ If no → not a sub-processor → no privacy-policy disclosure needed (but still
 For each active jurisdiction:
 
 - [ ] **Singapore PDPA s26** — vendor's DPA contains binding clauses comparable to PDPA Transfer Limitation Obligation (PDP Reg 10).
-- [ ] **Indonesia UU PDP / Thailand PDPA** — verify the cross-border basis (adequacy / explicit consent / contractual safeguards) is satisfied.
+- [ ] **Indonesia UU PDP** — Pasal 56 3-tier hierarchy: adequacy → adequate-and-binding safeguards → consent. No published adequacy list — most realistic basis is Tier 2 vendor DPA with binding clauses.
+- [ ] **Thailand PDPA** — verify the cross-border basis (adequacy / explicit consent / contractual safeguards) is satisfied.
+- [ ] **Malaysia PDPA s129** — post-A1727 (1 April 2025) the Ministerial whitelist regime is **deleted**. Realistic basis is **s129(3)(f) due diligence**: vendor DPA + cert audits (ISO 27001 / SOC 2) + a documented assessment that the destination won't process the data in a manner that would contravene the Act if it were Malaysia. Burden of proof is on you as controller.
 
 ## 6. Logging hygiene ([layer 04](../layers/04-controls-and-processes.md))
 
@@ -82,5 +84,6 @@ Update `docs/INCIDENT_RESPONSE.md`:
 | Jurisdiction | Particular considerations |
 |---|---|
 | **Singapore PDPA** | s26 transfer + s11(2) responsibility for processor. Most vendor DPAs cover this with standard contractual clauses. |
-| **Indonesia UU PDP** | Cross-border requires adequacy OR explicit consent OR safeguards. Vendor DPA usually provides safeguards. |
+| **Indonesia UU PDP** | Cross-border requires adequacy OR explicit consent OR safeguards. Vendor DPA usually provides safeguards. Pasal 51–52 also imposes processor obligations parallel to controller — confirm vendor's RoPA practice. |
 | **Thailand PDPA** | Similar to Indonesia. Note PDPC Thailand has not formally designated adequate jurisdictions — rely on contractual safeguards. |
+| **Malaysia PDPA** | Post-A1727 (1 April 2025) the processor is **directly bound** by the Security Principle (s9) under s5(1A) and must appoint its own DPO under s12A(2). Confirm the vendor has appointed and registered a DPO with JPDP — the vendor's DPO appointment is now an evidence item, not just contractual. Cross-border whitelist is gone — rely on s129(3)(f) due diligence. |

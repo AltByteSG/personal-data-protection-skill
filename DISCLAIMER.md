@@ -8,13 +8,13 @@ By installing, accessing, viewing, or otherwise using this skill, you acknowledg
 
 ## What this skill is
 
-- A working summary of personal-data-protection obligations as they apply to building and operating software systems in Singapore, Thailand, and Indonesia
+- A working summary of personal-data-protection obligations as they apply to building and operating software systems in Singapore, Thailand, Indonesia, and Malaysia
 - A set of layered patterns and checklists that engineers can use when designing features, schemas, and operational processes
 - A collection of jurisdiction-specific notes mapping universal patterns to the relevant statute sections
 
 ## What this skill is **not**
 
-- **Not legal advice.** No attorney–client, solicitor–client, or any other professional advisory relationship is created by your use of this skill. The maintainers and contributors are not licensed to practise law in Singapore, Thailand, Indonesia, or any other jurisdiction.
+- **Not legal advice.** No attorney–client, solicitor–client, or any other professional advisory relationship is created by your use of this skill. The maintainers and contributors are not licensed to practise law in Singapore, Thailand, Indonesia, Malaysia, or any other jurisdiction.
 - **Not authoritative.** Where the content in this skill conflicts with the official statute, regulator guidance, or a court / regulator decision, **the official source wins.** The skill content is a summary written by engineers for engineers; it may be incomplete, inaccurate, or out of date.
 - **Not a guarantee of compliance.** Following the patterns and checklists in this skill does not by itself make your application compliant with any statute. Compliance is a fact-specific determination requiring qualified review of your particular processing activities.
 - **Not a substitute for professional review.** Decisions about whether your application complies with the law require the judgment of a qualified DPO, privacy counsel, or compliance professional who has reviewed your specific facts.
@@ -49,6 +49,9 @@ When implementing or defending compliance work, always consult the official sour
 - **Indonesia — UU PDP No. 27/2022:**
   - Komdigi (Kementerian Komunikasi dan Digital, formerly Kominfo)
   - Statute on the Indonesian state gazette portal: [peraturan.go.id](https://peraturan.go.id)
+- **Malaysia — Personal Data Protection Act 2010 (Act 709) with the 2024 Amendments (Act A1727):**
+  - Department of Personal Data Protection / Jabatan Perlindungan Data Peribadi (JPDP): [www.pdp.gov.my](https://www.pdp.gov.my)
+  - Federal Legislation portal: [lom.agc.gov.my](https://lom.agc.gov.my)
 
 The maintainers are not affiliated with, endorsed by, or speaking for any of these regulators.
 
@@ -68,18 +71,19 @@ The MIT licence accompanying this repository ([LICENSE](LICENSE)) covers **only 
 
 Specifically:
 
-1. **Statute texts and official translations remain the property of their respective governments / regulators.** This includes (without limitation):
+1. **Statute texts and official translations remain the property of their respective governments / regulators / appointed publishers.** This includes (without limitation):
    - The Singapore Personal Data Protection Act 2012 and its subordinate regulations, published on Singapore Statutes Online and subject to the [SSO Terms of Use](https://sso.agc.gov.sg/Help/TermsOfUse).
    - The Thailand Personal Data Protection Act B.E. 2562 (2019) as published in the Royal Government Gazette, and any English translations published by PDPC Thailand subject to PDPC Thailand's own terms.
    - The Indonesia Undang-Undang No. 27 Tahun 2022 (Pelindungan Data Pribadi) as published on peraturan.go.id, and any official translations or guidance issued by Komdigi (formerly Kominfo).
+   - The Malaysia Personal Data Protection Act 2010 (Act 709) and the Personal Data Protection (Amendment) Act 2024 (Act A1727), published by **Percetakan Nasional Malaysia Berhad (PNMB)** as Appointed Printer to the Government of Malaysia. **The PNMB-published PDFs carry a notably restrictive publisher's copyright notice** ("All rights reserved. No part of this publication may be reproduced, stored in a retrieval system or transmitted in any form or by any means electronic, mechanical, photocopying, recording and/or otherwise without the prior permission of Percetakan Nasional Malaysia Berhad"). This restriction is more explicit than the equivalents on SSO / PDPC Thailand / peraturan.go.id, and reusers should treat MY source-copyright posture as the strictest of the four when planning any redistribution.
 
-2. **Verbatim quotations of statutory language reproduced in this skill are short operative phrases, cited and attributed to the official source, reproduced for educational and engineering-reference purposes under fair-dealing principles** (or the local equivalent doctrine in each jurisdiction). The skill does not republish any statute in full and does not substitute for the official text.
+2. **Verbatim quotations of statutory language reproduced in this skill are short operative phrases, cited and attributed to the official source, reproduced for educational and engineering-reference purposes under fair-dealing principles** (or the local equivalent doctrine in each jurisdiction — e.g., section 13 of the Malaysian Copyright Act 1987). The skill does not republish any statute in full and does not substitute for the official text.
 
-3. **Anyone wishing to redistribute the verbatim quotations** beyond similar non-commercial educational or engineering-reference use, or to reproduce substantial portions of any statute, official translation, or regulator guidance, **must consult the originating regulator's terms** (SSO, PDPC Thailand, Komdigi, etc.) and obtain permission where required. The MIT licence on this repository does not — and cannot — grant such rights on the regulators' behalf.
+3. **Anyone wishing to redistribute the verbatim quotations** beyond similar non-commercial educational or engineering-reference use, or to reproduce substantial portions of any statute, official translation, or regulator guidance, **must consult the originating regulator's or publisher's terms** (SSO, PDPC Thailand, Komdigi, PNMB / JPDP, etc.) and obtain permission where required. **For Malaysia in particular**, the PNMB notice expressly requires prior written permission for reproduction beyond fair-dealing — do not assume the SG / TH / ID model carries over. The MIT licence on this repository does not — and cannot — grant such rights on the regulators' or publishers' behalf.
 
 4. **The maintainers make no representation** that the verbatim quotations are reproduced under any specific licence or with any specific permission from the regulators. The fair-dealing basis above is the maintainers' good-faith view, not a legal opinion or warranty.
 
-If you are a representative of a regulator or rights-holder and believe any verbatim quotation in this skill exceeds fair-dealing or other applicable exemption, please open an issue or contact the maintainers — see [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+If you are a representative of a regulator, rights-holder, or appointed publisher (PDPC, PDPC Thailand, Komdigi, PNMB, JPDP, or any other) and believe any verbatim quotation in this skill exceeds fair-dealing or other applicable exemption, please open an issue or contact the maintainers — see [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
 ## Liability
 

@@ -77,7 +77,9 @@ If the field is **transmitted** to a third party (push body, OAuth token, email 
 For each active jurisdiction, confirm:
 
 - [ ] **Singapore PDPA** — does the field fit the existing s17 / 1st-Schedule lawful basis, or does it need explicit consent? If consent: when is it recorded?
-- [ ] **Indonesia UU PDP / Thailand PDPA** — six-base structure means more options; verify the chosen lawful basis is documented (when these jurisdictions are populated).
+- [ ] **Thailand PDPA** — six-base structure (s24); chosen lawful basis documented. If the field is sensitive (s26 broad list), explicit consent dialog required.
+- [ ] **Indonesia UU PDP** — six-base structure (Pasal 20); chosen lawful basis documented. If the field is "Specific" Personal Data (Pasal 4: health, biometric, genetic, criminal, children's, financial), explicit consent + **DPIA trigger check** (Pasal 34). RoPA updated (Pasal 31).
+- [ ] **Malaysia PDPA** — basis under s6 (consent default + s6(2) carve-outs); s6(3) data-minimisation test (lawful purpose + necessity + non-excessive). If sensitive (s4 incl. **biometric data**), explicit consent under s40(1)(a) + separate consent screen. Recipients list update (s44).
 
 ## 10. Sensitive data extra steps
 

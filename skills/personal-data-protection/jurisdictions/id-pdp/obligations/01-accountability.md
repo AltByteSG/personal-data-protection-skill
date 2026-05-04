@@ -196,32 +196,15 @@ These exceptions apply only when implementing law.
 
 **Implementation layer:** [01 Non-technical](../../../layers/01-non-technical.md) (DPA terms), [04 Controls](../../../layers/04-controls-and-processes.md) (sub-processor dispatch).
 
-## Pasal 53 — DPO designation
+## Pasal 53 / 54 — DPO (engineering touch-points)
 
-**Rule:** the Controller AND Processor must designate a "DPO" (officer or person performing the Personal Data protection function) when:
+DPO designation is required where processing is for public-interest purposes, where core activities require large-scale regular and systematic monitoring, or where core activities consist of large-scale processing of "specific" (sensitive) Personal Data or criminal-records data — same structure as GDPR Article 37(1)(b)/(c). DPO qualifications, internal-vs-external sourcing, and the full Pasal 54 duties (inform/advise, monitor, advise on DPIA, act as contact) are governance — see [01 Non-technical](../../../layers/01-non-technical.md).
 
-a. Processing for **public-interest** purposes
-b. **Core activities** of the Controller require **regular and systematic monitoring** of Personal Data on a **large scale**
-c. **Core activities** consist of **large-scale processing of "specific" (sensitive) Personal Data** OR Personal Data related to criminal records
+**Engineering surface:**
 
-**Same structure as GDPR Article 37(1)(b)/(c).**
-
-**Qualifications (Pasal 53(2)):** DPO appointed based on professionalism, knowledge of law and PDP practice, and ability to perform the duties.
-
-**Source (Pasal 53(3)):** DPO may be internal or external (contracted third party).
-
-**Implementation layer:** [01 Non-technical](../../../layers/01-non-technical.md).
-
-## Pasal 54 — DPO duties
-
-Minimum duties (Pasal 54(1)):
-
-a. **Inform and advise** the Controller / Processor on UU PDP compliance
-b. **Monitor and ensure** compliance with UU PDP and the Controller's / Processor's policies
-c. **Advise on DPIA** and monitor Controller / Processor performance
-d. **Coordinate and act as contact** for issues related to Personal Data processing
-
-The DPO must consider the risks, nature, scope, context, and purposes of the processing in carrying out duties (Pasal 54(2)).
+- Published DPO contact in the privacy notice — the email address must route to a real human and not silently bounce.
+- DPO needs read access to the Pasal 31 records-of-processing inventory and to audit logs to perform Pasal 54(b) monitoring duties — wire those reads on day one.
+- For Pasal 34 DPIA workflows, the DPO is the sign-off owner; the DPIA artefact (purpose, categories, risk, mitigation) lives next to the feature in a documented location the DPO can reach.
 
 ## Penalty exposure (this Part)
 

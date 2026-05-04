@@ -40,7 +40,7 @@ See [01-accountability.md](01-accountability.md). Briefly: a system to detect an
 5. **Vital interests** — preventing or suppressing a danger to life, body, or health, where the data subject is incapable of giving consent at the time
 6. **Substantial public interest activities**
 
-**Adequacy decisions** are made by PDPC Thailand. As of last verification, the Committee is still developing its adequacy framework — verify current adequate jurisdictions list at [pdpc.or.th](https://www.pdpc.or.th).
+PDPC Thailand has not formally designated adequate jurisdictions as of last verification — verify the current list before relying on adequacy. Most engineering teams will rely on the (3) contractual-necessity basis for routine cloud-region or SaaS processing.
 
 **Implementation layers:** [02 Architecture](../../../layers/02-architecture.md), [06 Disclosure](../../../layers/06-disclosure.md).
 
@@ -75,7 +75,7 @@ This is similar to GDPR's "appropriate safeguards" (Standard Contractual Clauses
 
 ## Section 40 — Data Processor duties (security overlap)
 
-See [01-accountability.md](01-accountability.md). The processor's obligations include security measures + breach notification to the controller. Failure to operate within the controller's instructions reclassifies the processor as the controller for that processing.
+Processor security + breach-flow-down duties are covered in [01-accountability.md](01-accountability.md).
 
 ## Cross-border transfer table (planning template)
 

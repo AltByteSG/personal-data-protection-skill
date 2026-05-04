@@ -6,14 +6,14 @@ Thanks for your interest. Contributions of any size are welcome — typo fixes, 
 
 In rough priority order:
 
-1. **Statute updates.** When PDPC (Singapore), the appointed Indonesia DPA, or PDPC (Thailand) publishes an amendment or material new guidance, open a PR updating the relevant jurisdiction file plus the [CHANGELOG](CHANGELOG.md) entry. Cite the official source and link to the regulator's announcement.
-2. **Malaysia PDPA, Philippines DPA, and Vietnam PDPD jurisdiction content.** Tagged for v0.3 — see [CHANGELOG.md](CHANGELOG.md). Each needs the same shape as the existing `skills/personal-data-protection/jurisdictions/sg-pdpa/`, `th-pdpa/`, and `id-pdp/` folders: a `README.md` with statute version metadata, an `obligations/` folder mapping the statute to the universal layers, and a `statute-map.md` reverse lookup.
+1. **Statute updates.** When PDPC (Singapore), the appointed Indonesia DPA, PDPC (Thailand), or JPDP (Malaysia) publishes an amendment or material new guidance, open a PR updating the relevant jurisdiction file plus the [CHANGELOG](CHANGELOG.md) entry. Cite the official source and link to the regulator's announcement.
+2. **Philippines DPA and Vietnam PDPD jurisdiction content.** Tagged for v0.4 — see [CHANGELOG.md](CHANGELOG.md). Each needs the same shape as the existing `skills/personal-data-protection/jurisdictions/sg-pdpa/`, `th-pdpa/`, `id-pdp/`, and `my-pdpa/` folders: a `README.md` with statute version metadata, an `obligations/` folder mapping the statute to the universal layers, and a `statute-map.md` reverse lookup.
 3. **Stack-specific implementation examples.** The layer files are deliberately stack-agnostic. Examples that show *"in a Supabase project, this principle is implemented as RLS + SECURITY DEFINER"* or *"in a Rails app, as `before_action` + Pundit"* are welcome — but please add them as labelled examples within the existing layer files, not by coupling the core text to any single stack.
 4. **Incident-response notes that generalise.** If you've responded to a data incident and there's a learned pattern that would help others, the runbook template is the right home.
 
 ## Out of scope
 
-- **Non-SEA jurisdictions.** This repo is scoped to SEA personal-data-protection statutes: SG PDPA, TH PDPA, ID UU PDP today, with MY PDPA, PH DPA, and VN PDPD planned for v0.3. GDPR, UK GDPR, CCPA, etc. are intentionally excluded — they are significantly different statutes and would dilute the skill. A separate project per jurisdiction family is a better pattern.
+- **Non-SEA jurisdictions.** This repo is scoped to SEA personal-data-protection statutes: SG PDPA, TH PDPA, ID UU PDP, and MY PDPA today, with PH DPA and VN PDPD planned for v0.4. GDPR, UK GDPR, CCPA, etc. are intentionally excluded — they are significantly different statutes and would dilute the skill. A separate project per jurisdiction family is a better pattern.
 - **Stack-specific skills.** A "Supabase + Flutter PDP" skill belongs in its own repo (or in your project's `.claude/skills/`) using this skill as a base.
 - **Promotional content** about products or services.
 

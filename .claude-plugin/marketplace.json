@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "personal-data-protection",
-      "description": "SEA personal-data-protection compliance reference for engineers — Singapore PDPA, Thailand PDPA, Indonesia UU PDP. Tech-agnostic, organised by where in the stack each obligation lands rather than by statute section. Reference material, not legal advice.",
+      "description": "SEA personal-data-protection compliance reference for engineers — Singapore PDPA, Thailand PDPA, Indonesia UU PDP, and Malaysia PDPA (with the 2024 Amendments — Act A1727). Tech-agnostic, organised by where in the stack each obligation lands rather than by statute section. Reference material, not legal advice.",
       "category": "compliance",
       "source": {
         "source": "url",

@@ -37,14 +37,11 @@ Operationalised via:
 
 ## Pasal 37 — Supervise all parties involved
 
-**Rule:** the Controller must **supervise every party** involved in Personal Data processing under the Controller's control.
+**Engineering surface:** maintain a vendor / sub-processor register with current DPAs and technical scoping. Each processor's access must be limited to the data categories and purposes documented in the DPA — enforce at the platform level (separate API keys, scoped service accounts, per-vendor row filters) so the supervision is real-time, not paper. Conduct vendor-compliance audits annually at minimum.
+
+**Statute basis:** the Controller must supervise every party involved in Personal Data processing under the Controller's control.
 
 **Implementation layer:** [01 Non-technical](../../../layers/01-non-technical.md) (vendor governance), [04 Controls](../../../layers/04-controls-and-processes.md) (sub-processor dispatch oversight).
-
-**Operationalisation:**
-- Vendor / sub-processor register with current DPAs
-- Technical controls limiting what each processor can access
-- Periodic vendor review
 
 ## Pasal 38 — Protect from unlawful processing
 

@@ -69,7 +69,26 @@ For each active jurisdiction (see SKILL.md Step 1), walk the relevant obligation
 - s25 retention (TTL on any new column? if storing files: orphan-reaping covered?)
 - s26D(1) breach notification (does this feature widen the breach surface? add to runbook?)
 
-**Indonesia / Thailand** (if active): refer to `../jurisdictions/id-pdp/` / `../jurisdictions/th-pdpa/` once populated; until then, defer to the universal layers + a qualified local lawyer.
+**Thailand PDPA** (if active): walk `../jurisdictions/th-pdpa/obligations/01–07`. Particular attention:
+- s26 sensitive personal data — broader than SG; add a separate explicit-consent modal where any sensitive category is in scope.
+- s32 data portability — export format must be transferable to another controller.
+- s34 right-to-restrict — if this feature touches data covered by an active restriction, the mutation path must check the restriction state.
+- s37 breach notification (72h from awareness).
+
+**Indonesia UU PDP** (if active): walk `../jurisdictions/id-pdp/obligations/01–07`. Particular attention:
+- Pasal 22 form-of-consent — strict; non-compliant consent is null and void; ensure simple language, clear distinction from T&C.
+- Pasal 25 — accessibility / alternative consent channels for users with disabilities.
+- Pasal 34 mandatory DPIA — **does this feature trigger any of the 7 DPIA triggers** (automation, sensitive PD, large-scale, regular monitoring, data matching, novel tech, rights-restrictive)? If yes, the DPIA artefact must exist before launch.
+- Pasal 31 RoPA — update the formal records-of-processing inventory with the new purpose / recipients.
+- Pasal 40, 41 — 72-hour SLAs on consent withdrawal and processing-restriction respectively; encode as per-jurisdiction SLA constants in the corresponding handlers.
+- Pasal 46 breach notification — 72h to **both** subject and regulator; subject notification is **not** gated on harm.
+
+**Malaysia PDPA** (if active): walk `../jurisdictions/my-pdpa/obligations/01–07`. Particular attention:
+- s7(3) — privacy notice and choice mechanism must be available in **both Bahasa Malaysia and English**. Translation review is a release blocker.
+- s4 — sensitive personal data now includes **biometric data** (face embeddings, fingerprints, voice prints, gait, iris). Trigger a separate explicit-consent dialog under s40(1)(a).
+- s9 / s5(1A) — if this feature changes who-processes-what, recall that data processors are now directly liable under s9 (post-1 April 2025).
+- s12B breach notification — 72h Commissioner / 7d subject (per JPDP Guideline 25 Feb 2025). Confirm the runbook has the MY lane.
+- s43A data portability — if the feature creates a new export surface, satisfy s43A by exposing a structured machine-readable format and a direct-transmission path.
 
 ## 9. Backwards compatibility
 

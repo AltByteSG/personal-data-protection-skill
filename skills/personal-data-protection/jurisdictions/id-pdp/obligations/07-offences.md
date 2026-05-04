@@ -84,37 +84,11 @@ In addition to Pasal 67–68 penalties, the court may also impose:
 - **Confiscation of profits or assets** obtained from the criminal act
 - **Compensation payment** to the victim
 
-### Pasal 70 — Corporate criminal liability (broader than SG / TH)
+### Pasal 70 — Corporate criminal liability
 
-**Rule:** when the offence under Pasal 67–68 is committed by a **Corporation**, the penalty may be imposed on:
-- Management (pengurus)
-- Controlling shareholders (pemegang kendali)
-- Persons giving instructions (pemberi perintah)
-- Beneficial owners (pemilik manfaat)
-- AND/OR the Corporation itself
+**Rule:** Pasal 67–68 offences committed by a Corporation expose management, controlling shareholders, instruction-givers, beneficial owners, and/or the Corporation itself. Corporate fines stack to **up to 10×** the natural-person maximum (Pasal 70(3)) — Pasal 67(1) corporate ≤ IDR 50B (~USD 3.2M); Pasal 68 corporate ≤ IDR 60B (~USD 3.8M). Pasal 70(4) adds non-monetary penalties: business suspension, activity bans, location closure, licence revocation, and **dissolution**. Indonesia is the only one of the four populated jurisdictions where a court can dissolve the corporation for PDP offences.
 
-**For corporations**, only fines may be imposed (Pasal 70(2)), but:
-
-- **Fine ceiling: up to 10× the maximum** for a natural person under Pasal 67–68 (Pasal 70(3))
-- For Pasal 67(1) corporate version: up to **IDR 50,000,000,000** (~USD 3.2M)
-- For Pasal 68 corporate version: up to **IDR 60,000,000,000** (~USD 3.8M)
-
-**Plus additional penalties (Pasal 70(4)):**
-
-a. Confiscation of profits / assets from the criminal act
-b. **Suspension of all or part of the Corporation's business**
-c. **Permanent ban** on conducting certain activities
-d. **Closure of all or part of the Corporation's business locations**
-e. Mandatory performance of neglected obligations
-f. Compensation payment
-g. **Licence revocation**
-h. **Dissolution of the Corporation**
-
-This is significantly broader than:
-- Singapore PDPA (s48D/E/F): individual criminal liability + organisational financial penalty cap
-- Thailand PDPA (s79–81): individual criminal + tiered administrative fines
-
-Indonesia is the only one of the three where a court can **dissolve the corporation** for PDP offences.
+**Engineering relevance:** the audit trail (audit logs, breach register, RoPA, vendor inventory, DPIA artefacts, training records) is the input to any due-diligence defence and to mitigation in sentencing. Make those queryable and durable.
 
 ### Pasal 71–73 — Enforcement procedures
 
@@ -126,9 +100,9 @@ Three concepts to internalise:
 
 1. **Administrative + criminal layers stack.** Pasal 57 (administrative) and Pasal 67–73 (criminal) can both apply to the same incident. A breach that involves unauthorised disclosure for personal benefit triggers both.
 
-2. **Corporate criminal liability is broader than peer jurisdictions.** Beyond fines, courts can dissolve the corporation. This is the strongest enforcement tool in any of the three PDP-family jurisdictions covered.
+2. **2% revenue ceiling is per-violation.** Multiple findings in one investigation can stack. A single root cause that triggers violations of multiple Pasal can produce a multi-tier fine.
 
-3. **2% revenue ceiling is per-violation.** Multiple findings in one investigation can stack. A single root cause that triggers violations of multiple Pasal can produce a multi-tier fine.
+3. **Audit trail is the engineering input to any defence.** Pasal 70 corporate liability is broader than the peer jurisdictions; the artefacts that anchor a due-diligence / mitigation argument are all engineering surfaces — RoPA (Pasal 31), DPIA (Pasal 34), audit logs, breach register, vendor inventory.
 
 ## Penalty cap calculation in practice
 

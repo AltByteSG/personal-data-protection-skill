@@ -75,37 +75,15 @@ The Data Processor has three enumerated duties:
 
 The Data Controller must prepare a written agreement with the Data Processor controlling the activities. **Implementation layer:** [01 Non-technical](../../../layers/01-non-technical.md) (DPAs).
 
-## Section 41 — DPO designation
+## Section 41 / 42 — DPO (engineering touch-points)
 
-**Rule:** the Data Controller AND the Data Processor must designate a Data Protection Officer (DPO) in the following circumstances:
+DPO designation is required where the controller / processor is a public authority, conducts large-scale regular monitoring, or has sensitive data (s26) as a core activity. Designation, qualifications, dismissal protections, conflict-of-interest warranties, and the full s42 duties (advise / investigate / coordinate / confidentiality) are governance — see [01 Non-technical](../../../layers/01-non-technical.md).
 
-1. **Public authority** as prescribed and announced by the Committee
-2. **Large-scale regular monitoring**: activities require regular monitoring of Personal Data or systems by reason of large volume (threshold prescribed by Committee)
-3. **Core activity is sensitive data** (s26)
+**Engineering surface:**
 
-**Joint DPO:** affiliated businesses or groups under a s29 PDPC-certified Personal Data Protection Policy may share a single DPO, provided each establishment can easily contact them.
-
-**Public disclosure:** the Data Controller and Data Processor must publish the DPO's contact information so that data subjects and the Office can reach them about collection / use / disclosure and the exercise of rights.
-
-**Implementation layer:** [01 Non-technical](../../../layers/01-non-technical.md).
-
-## Section 42 — DPO duties
-
-The DPO must:
-
-1. **Advise** the Data Controller / Processor (and their staff and service providers) on PDPA compliance
-2. **Investigate** the Data Controller / Processor's compliance with the Act in the collection / use / disclosure of Personal Data
-3. **Coordinate with the Office** when problems arise
-4. **Keep confidentiality** of Personal Data acquired in the course of duty
-
-**DPO protections:**
-- The Data Controller / Processor **must not dismiss** the DPO by reason of performing duties under the Act
-- The DPO must be able to **report directly to the chief executive** of the Data Controller / Processor
-- The Data Controller / Processor must provide adequate tools and access for the DPO to perform duties
-
-**Conflict of interest:** the DPO may have other duties, but the Data Controller / Processor must warrant to the Office that those duties don't conflict with PDPA performance.
-
-The DPO may be an employee or a contracted external service provider.
+- Published DPO contact in the privacy notice — the email address must route to a real human and not silently bounce.
+- DPO needs access to audit logs, breach-register, and processing records to perform s42 monitoring duties — wire those reads on day one rather than retrofitting.
+- For affiliated groups under a s29 PDPC-certified policy, a shared DPO is permitted; ensure your privacy notice still names a contactable address per consumer-facing brand.
 
 ## Chapter I — Personal Data Protection Committee (s8–18)
 

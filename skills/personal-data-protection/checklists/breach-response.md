@@ -28,13 +28,14 @@ Open it the moment you suspect any of:
 
 Once you assess an incident as "notifiable" per your active jurisdiction's threshold:
 
-| Jurisdiction | Notification deadline to authority |
-|---|---|
-| Singapore PDPA | **3 calendar days** (s26D(1)) |
-| Indonesia UU PDP | **72 hours** (planned coverage) |
-| Thailand PDPA | **72 hours** (planned coverage) |
+| Jurisdiction | Notification deadline to authority | Subject notification |
+|---|---|---|
+| Singapore PDPA | **3 calendar days** (s26D(1)) — clock starts at **assessment** | On or after authority notification, where significant harm |
+| Indonesia UU PDP | **72 hours** from awareness (Pasal 46(1)) | All breaches notify subject; "certain circumstances" trigger public notification |
+| Thailand PDPA | **72 hours** from awareness (s37(4)) | If "high risk to rights and freedoms" |
+| Malaysia PDPA | **72 hours** from discovery (s12B(1) + JPDP Guideline 25 Feb 2025) | **Within 7 days** of Commissioner notification, where significant harm (s12B(2)) |
 
-The clock starts at **assessment**, not at incident occurrence. Your runbook has the full assessment matrix per active jurisdiction.
+For SG the clock starts at **assessment**; for TH / ID / MY it starts at **awareness / discovery**. Your runbook has the full assessment matrix per active jurisdiction.
 
 ## Do not use Claude to:
 
