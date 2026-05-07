@@ -10,6 +10,21 @@ A Claude Code [skill](https://docs.claude.com/en/docs/claude-code/skills) that h
 
 **Audience:** anyone building any app or service that handles personal data of users in Singapore, Thailand, Indonesia, or Malaysia. Tech-agnostic — works whether your stack is Supabase, Firebase, AWS, your own backend, native iOS/Android, Flutter, React Native, web, a headless API, or anything else.
 
+## Coverage — Southeast Asia focus
+
+This skill is **deliberately SEA-focused**. Most products built in or for the region are subject to two or more of these regimes concurrently (a Singapore-headquartered app with Thai and Indonesian users, a Malaysian fintech with Singapore corporate customers, etc.), and the "strictest rule wins" approach only works when the four regimes are factored against a shared set of implementation layers. Broader global skills (GDPR / CCPA / PIPL) exist elsewhere and are intentionally **out of scope** here — coverage breadth would dilute the SEA depth.
+
+| Jurisdiction | Regulation | Regulator | Status |
+|---|---|---|---|
+| Singapore | PDPA 2012 (post-2020 Amendments) | PDPC | ✅ Populated |
+| Thailand | PDPA B.E. 2562 (2019) | PDPC Thailand | ✅ Populated |
+| Indonesia | UU PDP No. 27/2022 | Komdigi | ✅ Populated |
+| Malaysia | PDPA 2010 (with 2024 Amendments — Act A1727) | JPDP | ✅ Populated |
+| Philippines | Data Privacy Act 2012 (RA 10173) | NPC | 🚧 Planned for v0.4 |
+| Vietnam | PDP Decree 13/2023/ND-CP | A05 (MPS) | 🚧 Planned for v0.4 |
+
+**Not in scope:** GDPR, UK GDPR, CCPA / CPRA and other US state laws, PIPL (China), APPI (Japan), PIPA (Korea), DPDP Act (India), LGPD (Brazil), POPIA (South Africa), Privacy Act 1988 (Australia), PIPEDA (Canada). If your product is also subject to one of these, pair this skill with a jurisdiction-specific reference for that regime.
+
 ## Why this exists
 
 Personal-data-protection statutes are written by lawyers, for lawyers. Engineers shipping features need answers like *"I'm adding a new column that stores user PII — what do I touch?"*, not section numbers. This skill bridges the two:
