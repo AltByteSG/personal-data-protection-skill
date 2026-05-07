@@ -8,6 +8,22 @@ Each release records the statute versions reflected in the content. When a statu
 
 — No unreleased changes.
 
+## [0.3.1] — 2026-05-07
+
+Adds Codex packaging and local guardrails without changing the underlying statute coverage.
+
+### Added
+
+- [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) — Codex plugin manifest pointing to the existing `skills/` directory.
+- [`.pdp-compliance.example.json`](.pdp-compliance.example.json) — project-level jurisdiction config example for Codex / local guardrails.
+- [`scripts/pdp-check-changed-files.py`](scripts/pdp-check-changed-files.py) — dependency-free changed-file tripwire for pre-commit and CI. It flags likely PDP-sensitive changes and points developers back to the skill; it does not make legal-compliance decisions.
+
+### Changed
+
+- [`README.md`](README.md) — Codex install notes, `.pdp-compliance.json` setup, pre-commit example, and GitHub Actions example added.
+- [`skills/personal-data-protection/SKILL.md`](skills/personal-data-protection/SKILL.md) and [`AGENTS.md`](AGENTS.md) — first check `.pdp-compliance.json`; ask for jurisdictions only when project config is absent.
+- [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) and [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) — version bumped to **0.3.1**.
+
 ## [0.3.0] — 2026-05-04
 
 Adds **Malaysia PDPA 2010 (with the 2024 Amendments — Act A1727)** as the fourth populated jurisdiction. Reflects the staged commencement of Act A1727 under P.U.(B) 522/2024 (1 January 2025, 1 April 2025, **1 June 2025**) and the operative JPDP guidelines on DPO appointment and data breach notification (issued 25 February 2025, effective 1 June 2025). Templates and checklists rewired to support the MY breach lane and processor regime; top-level divergence table extended with two new engineering-affecting rows (B2B SaaS processor; high-risk processing / DPIA); existing TH and ID obligation files trimmed to align with the engineering-first framing rule that the MY draft was written to. Philippines DPA and Vietnam PDPD now deferred to v0.4.

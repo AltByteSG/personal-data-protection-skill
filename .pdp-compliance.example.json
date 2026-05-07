@@ -1,0 +1,10 @@
+{
+  "personalDataProtection": {
+    "jurisdictions": [
+      "sg-pdpa",
+      "my-pdpa"
+    ],
+    "mode": "strictest-wins",
+    "reviewPolicy": "warn"
+  }
+}

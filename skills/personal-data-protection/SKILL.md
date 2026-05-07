@@ -19,11 +19,23 @@ This skill helps engineers ship features that comply with personal-data-protecti
 
 ## Step 1 — Identify the active jurisdiction(s)
 
-**On first use in a project, ask the user which jurisdiction(s) apply.** The answer depends on where the application's users are located, not where the company is registered.
+**On first use in a project, check for `.pdp-compliance.json` at the project root.** If present, use `personalDataProtection.jurisdictions` and load only the matching `jurisdictions/<code>/README.md` files. If absent, ask the user which jurisdiction(s) apply. The answer depends on where the application's users are located, not where the company is registered.
 
 > *"Which personal-data-protection regimes does this application need to comply with? Pick all that apply: Singapore (PDPA 2012), Indonesia (UU PDP 27/2022), Thailand (PDPA B.E. 2562), Malaysia (PDPA 2010 with 2024 Amendments). If users span multiple jurisdictions, pick all relevant — the strictest rule will usually win."*
 
-Once selected, load only the relevant `jurisdictions/<code>/README.md` files. Cross-jurisdiction comparison lives in [`jurisdictions/_index.md`](jurisdictions/_index.md).
+Once selected, suggest creating `.pdp-compliance.json` in the project root so future sessions and local guardrails do not need to re-ask:
+
+```json
+{
+  "personalDataProtection": {
+    "jurisdictions": ["sg-pdpa"],
+    "mode": "strictest-wins",
+    "reviewPolicy": "warn"
+  }
+}
+```
+
+Then load only the relevant `jurisdictions/<code>/README.md` files. Cross-jurisdiction comparison lives in [`jurisdictions/_index.md`](jurisdictions/_index.md).
 
 | Code | Jurisdiction | Status |
 |---|---|---|
@@ -34,7 +46,7 @@ Once selected, load only the relevant `jurisdictions/<code>/README.md` files. Cr
 | `ph-dpa` | Philippines Data Privacy Act 2012 (RA 10173) | 🚧 planned for v0.4 |
 | `vn-pdpd` | Vietnam PDP Decree 13/2023/ND-CP | 🚧 planned for v0.4 |
 
-Once the user has chosen, persist that choice somewhere project-specific (a comment in the project's CLAUDE.md, a memory entry, etc.) so subsequent sessions don't need to re-ask.
+Once the user has chosen, persist that choice in `.pdp-compliance.json` when the project allows file changes. If the project cannot accept that file, persist the choice somewhere project-specific (a comment in the project's `AGENTS.md`, `CLAUDE.md`, or equivalent project-instruction file) so subsequent sessions don't need to re-ask.
 
 ## Step 2 — Pick the right entry point
 

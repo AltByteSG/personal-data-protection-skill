@@ -12,11 +12,23 @@ If you are an agent and the user is working on code that touches personal data �
 
 ## Step 1 — Identify the active jurisdiction(s)
 
-**On first use in a project, ask the user which jurisdiction(s) apply.** The answer depends on where the application's *users* are located, not where the company is registered.
+**On first use in a project, check for `.pdp-compliance.json` at the project root.** If present, use `personalDataProtection.jurisdictions` and load only the matching `skills/personal-data-protection/jurisdictions/<code>/README.md` files. If absent, ask the user which jurisdiction(s) apply. The answer depends on where the application's *users* are located, not where the company is registered.
 
 > *"Which personal-data-protection regimes does this application need to comply with? Pick all that apply: Singapore (PDPA 2012), Thailand (PDPA B.E. 2562), Indonesia (UU PDP 27/2022), Malaysia (PDPA 2010 with 2024 Amendments). If users span multiple jurisdictions, pick all relevant — the strictest rule will usually win."*
 
-Once the user has chosen, persist that choice somewhere project-specific (a comment in the project's `AGENTS.md`, `CLAUDE.md`, or equivalent project-instruction file) so subsequent sessions don't need to re-ask. Then load only the relevant `skills/personal-data-protection/jurisdictions/<code>/README.md` files for the rest of the session.
+Once the user has chosen, suggest creating `.pdp-compliance.json` in the project root so future sessions and local guardrails do not need to re-ask:
+
+```json
+{
+  "personalDataProtection": {
+    "jurisdictions": ["sg-pdpa"],
+    "mode": "strictest-wins",
+    "reviewPolicy": "warn"
+  }
+}
+```
+
+Then load only the relevant `skills/personal-data-protection/jurisdictions/<code>/README.md` files for the rest of the session. If the project cannot accept `.pdp-compliance.json`, persist the choice somewhere project-specific (a comment in the project's `AGENTS.md`, `CLAUDE.md`, or equivalent project-instruction file) so subsequent sessions don't need to re-ask.
 
 | Code | Jurisdiction | Status |
 |---|---|---|

@@ -62,7 +62,7 @@ For the section-by-section walkthrough, see [`skills/personal-data-protection/ju
 
 ## Install
 
-The repo is laid out as a Claude Code **plugin** — skill content lives under [`skills/personal-data-protection/`](skills/personal-data-protection/). Three install paths depending on your tool:
+The repo is laid out for both Claude Code and Codex packaging — skill content lives under [`skills/personal-data-protection/`](skills/personal-data-protection/), with plugin manifests in [`.claude-plugin/`](.claude-plugin/) and [`.codex-plugin/`](.codex-plugin/). Install paths depend on your tool:
 
 ### Claude Code / Claude Cowork — via this repo's marketplace (works today)
 
@@ -81,7 +81,7 @@ The repo carries a [`marketplace.json`](.claude-plugin/marketplace.json) so it w
 
 Pending Anthropic review of the submission. Both install paths can coexist — pick one.
 
-### Codex CLI / Cursor / Copilot
+### Codex / Cursor / Copilot
 
 ```bash
 git clone https://github.com/AltByteSG/personal-data-protection-skill.git ~/.tools/personal-data-protection-skill
@@ -96,10 +96,12 @@ For personal-data-protection compliance, follow
 
 The root [`AGENTS.md`](AGENTS.md) routes the agent into the skill content under `skills/personal-data-protection/`.
 
+The repo also includes [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) for Codex plugin packaging. Project-specific jurisdiction selection still belongs in the consuming project's `.pdp-compliance.json`, not in the plugin manifest.
+
 ### Pin a specific upstream version
 
 ```bash
-cd <clone-path> && git checkout v0.2.0
+cd <clone-path> && git checkout v0.3.1
 ```
 
 ## Adapt to your project
@@ -107,7 +109,88 @@ cd <clone-path> && git checkout v0.2.0
 Two templates ship in [`skills/personal-data-protection/templates/`](skills/personal-data-protection/templates/). Setup instructions are in each file's header.
 
 - **[`INCIDENT_RESPONSE.md.template`](skills/personal-data-protection/templates/INCIDENT_RESPONSE.md.template)** — *works with any agent.* Solo / small-team breach runbook. Copy to your project's `docs/` folder and fill in the `{{PLACEHOLDERS}}` (DPO contact, vendor list, jurisdictions).
-- **[`pdp-nudge.sh.template`](skills/personal-data-protection/templates/pdp-nudge.sh.template)** — **Claude Code only.** Auto-nudges Claude into this skill on edits to PDP-sensitive paths via a `PostToolUse` hook. Codex CLI, Cursor, and Copilot do not have an equivalent hook system at time of writing, so this template is not portable — manual diligence on PDP-sensitive paths is the substitute on those agents.
+- **[`pdp-nudge.sh.template`](skills/personal-data-protection/templates/pdp-nudge.sh.template)** — **Claude Code only.** Auto-nudges Claude into this skill on edits to PDP-sensitive paths via a `PostToolUse` hook. Codex CLI, Cursor, and Copilot do not have an equivalent hook system at time of writing, so this template is not portable — use the Codex guardrail pattern below if you want mechanical checks outside the agent.
+
+### Codex guardrail: pre-commit / CI changed-file check
+
+For Codex, use the skill as the reasoning layer and a deterministic changed-file script as the tripwire. The script should not try to decide legal compliance; it should only detect that a change probably touches personal data and requires a PDP review.
+
+Recommended project config:
+
+```json
+{
+  "personalDataProtection": {
+    "jurisdictions": ["sg-pdpa", "my-pdpa"],
+    "mode": "strictest-wins",
+    "reviewPolicy": "warn"
+  }
+}
+```
+
+Save that as `.pdp-compliance.json` in the consuming project. Use the jurisdiction codes that apply to the application's users:
+
+- `sg-pdpa` — Singapore PDPA 2012
+- `th-pdpa` — Thailand PDPA B.E. 2562
+- `id-pdp` — Indonesia UU PDP No. 27/2022
+- `my-pdpa` — Malaysia PDPA 2010 with 2024 Amendments
+
+Then wire the checker into local commits. Example `.pre-commit-config.yaml` in the consuming project:
+
+```yaml
+repos:
+  - repo: local
+    hooks:
+      - id: pdp-compliance-check
+        name: PDP compliance changed-file check
+        entry: python3 scripts/pdp-check-changed-files.py --staged
+        language: system
+        pass_filenames: false
+```
+
+Install the hook:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+For CI, run the same checker against the pull-request diff. Example GitHub Actions job:
+
+```yaml
+name: PDP Compliance Check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  pdp-compliance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run PDP changed-file check
+        run: |
+          python3 scripts/pdp-check-changed-files.py \
+            --base origin/main \
+            --head HEAD \
+            --review-policy block-on-sensitive-change
+```
+
+Suggested flow:
+
+1. Developer edits code.
+2. Pre-commit warns when PDP-sensitive files or keywords are touched.
+3. Developer asks Codex to review the change against the selected jurisdictions.
+4. CI blocks sensitive pull-request changes unless the team has an agreed review acknowledgement, such as a PR label or `PDP-Reviewed: yes` commit trailer.
 
 ## Versioning
 
