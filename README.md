@@ -101,7 +101,7 @@ The repo also includes [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) 
 ### Pin a specific upstream version
 
 ```bash
-cd <clone-path> && git checkout v0.3.1
+cd <clone-path> && git checkout v0.4.0
 ```
 
 ## Adapt to your project

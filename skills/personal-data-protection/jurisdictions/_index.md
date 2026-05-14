@@ -39,7 +39,7 @@ When operating in multiple jurisdictions, **the strictest rule applies in each d
 Active jurisdiction is determined by **where the application's users are located**, not where the company is registered. Many applications need to comply with multiple regimes simultaneously:
 
 - App operated by a Singapore company, used by users in Singapore only → SG PDPA
-- App operated by a Singapore company, used by users in SG + ID + TH + MY → all four
+- App operated by a Singapore company, used by users in SG + ID + TH + MY + PH → all five
 - App operated by an Indonesian company, used only by Indonesian users → ID PDP
 - App operated by a foreign company **using equipment in Malaysia** to process personal data → MY PDPA applies (s3(1)(b))
 
