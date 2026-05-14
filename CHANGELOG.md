@@ -8,6 +8,25 @@ Each release records the statute versions reflected in the content. When a statu
 
 — No unreleased changes.
 
+## [0.4.0] — 2026-05-14
+
+Adds **Philippines Data Privacy Act 2012 (RA 10173)** as the fifth populated jurisdiction. Reflects RA 10173 read with the 2016 NPC Implementing Rules and Regulations and the operative NPC Circulars (16-03 Personal Data Breach Management, 18-01 Right to Data Portability, 2020-03 Data Sharing Agreements in the Private Sector, 2022-04 Rules on the Exercise of Data Subject Rights). Vietnam PDPD now deferred to v0.5 (the full Personal Data Protection Law is in draft and is expected to replace Decree 13/2023; v0.5 will write VN content against the Law where possible rather than against a soon-superseded decree).
+
+### Added — Philippines jurisdiction content
+
+- [`skills/personal-data-protection/jurisdictions/ph-dpa/README.md`](skills/personal-data-protection/jurisdictions/ph-dpa/README.md) — statute version (RA 10173 + IRR + operative Circulars), critical-thresholds block (72-hour breach lane to **both** NPC and affected subjects, 31 March annual incident report, ₱5M / 6 years criminal cap for combination offences), application + extraterritorial reach notes (§ 6), engineering-view "what makes PH distinctive" mental model (§ 34 personal officer liability, § 30 concealment offence, § 35 ≥100 person aggravation, government identifiers as SPI under § 3(l)), and `What's intentionally not covered` block keeping DPO appointment / NPC registration / DPIA in scope as paperwork rather than engineering surface.
+- [`skills/personal-data-protection/jurisdictions/ph-dpa/statute-map.md`](skills/personal-data-protection/jurisdictions/ph-dpa/statute-map.md) — reverse lookup keyed to RA 10173 sections, IRR sections, and NPC Circulars.
+- Seven obligation files under [`skills/personal-data-protection/jurisdictions/ph-dpa/obligations/`](skills/personal-data-protection/jurisdictions/ph-dpa/obligations/) covering accountability, consent + lawful bases (§§ 12, 13), general principles + notice (§ 11 + § 18 IRR), eight data subject rights (§ 16 + NPC Circular 2022-04 + NPC Circular 18-01), security + retention + cross-border accountability (§§ 20, 21 + IRR §§ 25–29 + § 50 IRR), breach notification (§ 38 IRR + NPC Circular 16-03), and offences (§§ 25–37 with § 34 personal officer liability and § 30 concealment).
+
+### Changed — cross-jurisdiction surfaces
+
+- [`skills/personal-data-protection/SKILL.md`](skills/personal-data-protection/SKILL.md) — frontmatter description, jurisdiction-listing prompt, status table, and critical-thresholds table all extended to include Philippines; "all four jurisdictions" wording generalised to "all populated jurisdictions"; v0.4 milestone closed; Vietnam moved to v0.5.
+- [`AGENTS.md`](AGENTS.md) — Codex / Cursor / Copilot entry point mirrored: same set of changes as `SKILL.md`.
+- [`skills/personal-data-protection/jurisdictions/_index.md`](skills/personal-data-protection/jurisdictions/_index.md) — cross-jurisdiction comparison grid extended to a fifth column (lawful bases, breach window, sensitive data, penalty cap, DPO requirement, individual criminal liability, restrict-processing, object-to-ADM, portability, cross-border mechanism, operational SLAs, children's data threshold, mandatory DPIA all populated for PH); status table flips PH to ✅ populated; closing strictest-rule paragraph extended to flag PH as the highest-stakes criminal regime among the populated jurisdictions.
+- [`README.md`](README.md) — "Coverage — Southeast Asia focus" table flips PH to ✅ populated and pushes VN to v0.5; "How the four statutes diverge" → "How the five statutes diverge" with all 11 rows extended to a fifth column (signup consent, sensitive data, high-risk processing / DPIA, notification toggles, account deletion, data export, pause-processing, admin reads of user data, B2B SaaS / processor, cross-border cloud storage, incident response runbook); Sources section gained a Philippines subsection (RA 10173, IRR, regulator, key Circulars, incident reporting portal); "Planned for v0.4" replaced with "Planned for v0.5 — Vietnam"; audience and status lines updated.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — NPC added to the regulator list for statute-update PRs; v0.5 milestone now lists Vietnam PDPD only.
+- [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json) and [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) — version bumped to **0.4.0**; descriptions extended to mention Philippines DPA.
+
 ## [0.3.1] — 2026-05-07
 
 Adds Codex packaging and local guardrails without changing the underlying statute coverage.
@@ -195,7 +214,10 @@ Initial release.
 | Thailand PDPA B.E. 2562 (2019) | Original 2019 text (PDPC Thailand English translation) | 2026-05-03 |
 | Indonesia UU PDP No. 27/2022 | Original 2022 enactment (Bahasa Indonesia binding text) | 2026-05-03 |
 
-[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.4.0
+[0.3.1]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.3.1
+[0.3.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.3.0
 [0.2.2]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.2.2
 [0.2.1]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.2.1
 [0.2.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.2.0
