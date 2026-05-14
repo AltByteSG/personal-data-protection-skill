@@ -34,6 +34,51 @@ Personal-data-protection statutes are written by lawyers, for lawyers. Engineers
 - **Entry-point checklists** for common tasks: new feature, new data field, new vendor, breach response.
 - **Statute-map** for reverse lookup when you need to cite a section in a PR description, audit response, or breach notification.
 
+## Use cases
+
+Three scenarios that show what this skill actually helps with — each one is a real engineering trap that a developer would otherwise miss.
+
+### 1. SG-based fintech expanding to Philippines for OFW remittances
+
+Your KYC flow already collects a TIN, SSS, and PhilSys number. **In Singapore those are plain PI; in the Philippines they're Sensitive Personal Information under § 3(l) of RA 10173** — the SPI category in PH explicitly includes all government-issued identifiers, which is broader than every other jurisdiction this skill covers.
+
+What you'd touch in the skill:
+- [`jurisdictions/ph-dpa/obligations/02-consent.md`](skills/personal-data-protection/jurisdictions/ph-dpa/obligations/02-consent.md) — § 13 explicit-consent requirement for SPI
+- [`layers/03-data-model.md`](skills/personal-data-protection/layers/03-data-model.md) — column-tagging + SPI gating patterns
+- [`checklists/new-data-field.md`](skills/personal-data-protection/checklists/new-data-field.md) — invoked when adding the PhilSys field
+
+Resulting engineering work: separate explicit-consent dialog before SPI capture, SPI-tier audit logging on reads (§ 26(b) negligent access carries 3–6 years prison + ₱500k–₱4M), masked display, no clear-text logging, deletion / blocking flow distinct from regular PII.
+
+### 2. B2B HR SaaS with customers across all five SEA jurisdictions — Tuesday-afternoon RLS misconfig exposes 50,000 employee records
+
+You don't get one notification clock. You get five lanes simultaneously, and the strictest rule applies per user:
+- **Singapore:** 3 calendar days to PDPC after assessment (s26D(1))
+- **Thailand:** 72 hours from awareness to PDPC (s37(4))
+- **Indonesia:** 72 hours from awareness to **both** regulator AND subjects (Pasal 46(1))
+- **Malaysia:** 72 hours to Commissioner (s12B(1) + JPDP Guideline 25 Feb 2025) + 7-day subject notification
+- **Philippines:** 72 hours to **both** NPC AND affected subjects (§ 38 IRR + NPC Circular 16-03 § 12); § 30 concealment is its own offence (1.5–5 years + ₱500k–₱1M); § 34 makes the engineering manager who approved the RLS migration personally liable for the corporate prison terms
+
+What you'd touch:
+- [`checklists/breach-response.md`](skills/personal-data-protection/checklists/breach-response.md) — entry point, per-jurisdiction triage
+- [`jurisdictions/<code>/obligations/06-breach-notification.md`](skills/personal-data-protection/jurisdictions/) — content and timing for each lane
+- [`templates/INCIDENT_RESPONSE.md.template`](skills/personal-data-protection/templates/INCIDENT_RESPONSE.md.template) — pre-staged so subject-comms aren't being drafted at hour 60
+
+Resulting engineering work: detection pipeline reliable enough to start the clock on **first credible signal** (not on confirmation); SOP that runs all five notifications in parallel; pre-filled regulator forms and pre-templated subject emails; an incident register that survives staff turnover (the input to PH's 31 March annual report).
+
+### 3. Indonesian consumer app launching server-side face unlock
+
+The biometric embedding crosses to your backend. Three Pasal triggers fire simultaneously:
+- **Pasal 4** — biometric data is "Specific" Personal Data
+- **Pasal 20(2)(a)** — explicit consent required before any processing
+- **Pasal 34 — mandatory DPIA before launch.** Biometric processing is one of the seven enumerated triggers; skipping the DPIA renders the processing non-compliant, regardless of how good the rest of the implementation is
+
+What you'd touch:
+- [`jurisdictions/id-pdp/obligations/02-consent.md`](skills/personal-data-protection/jurisdictions/id-pdp/obligations/02-consent.md) — Specific PD definition + Pasal 20(2)(a) explicit consent
+- [`jurisdictions/id-pdp/obligations/05-care.md`](skills/personal-data-protection/jurisdictions/id-pdp/obligations/05-care.md) — Pasal 34 DPIA triggers and content
+- [`layers/05-feature-ux.md`](skills/personal-data-protection/layers/05-feature-ux.md) — soft-prompt dialog pattern, opt-in framing
+
+Resulting engineering work: DPIA artefact on file **before** the feature ships (a launch gate, not best practice); explicit-consent modal separate from the signup checkbox; schema tagging for biometric columns; **72-hour consent-withdrawal SLA under Pasal 40** — the deletion sweep for biometric embeddings must run on a 72-hour cycle, not weekly.
+
 ## How the five statutes diverge — developer view
 
 This table is **application code and UX only**. Each row starts with *"If your app does X..."* and the per-jurisdiction columns describe how the implementation actually differs — what UI element to add, what column to create, what flow to build, what template to ship.
