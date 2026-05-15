@@ -4,9 +4,9 @@
 >
 > **Source-text posture:** this skill **does not reproduce or republish any of the underlying statutes**. It provides engineer-facing interpretation, layered patterns, and short attributed quotations of operative phrases under fair-dealing principles, with links to the official sources. Anyone planning to package or redistribute this content beyond similar engineering-reference use should read [DISCLAIMER.md § Copyright in source materials](DISCLAIMER.md#copyright-in-source-materials) — Malaysia's PNMB-published Act 709 / Act A1727 carry the strictest publisher's notice of the populated jurisdictions and may require prior permission.
 
-A Claude Code [skill](https://docs.claude.com/en/docs/claude-code/skills) that helps engineers build and maintain personal-data-protection-compliant applications, organised by where in the stack each obligation lands rather than by statute section number.
+A multi-agent personal-data-protection compliance reference for engineers — packaged as both a [Claude Code skill](https://docs.claude.com/en/docs/claude-code/skills) and a Codex plugin, with `AGENTS.md` routing for Cursor and Copilot — organised by where in the stack each obligation lands rather than by statute section number.
 
-**Status:** Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA, and Philippines DPA all populated. Repo is packaged as a Claude Code plugin (skill content under `skills/personal-data-protection/`); installable via `/plugin install` or direct clone. Vietnam PDPD planned for v0.5 (deferred while the full Vietnam PDP Law is in draft).
+**Status:** Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA, and Philippines DPA all populated. Repo ships dual plugin manifests — [`.claude-plugin/`](.claude-plugin/) (Claude Code / Cowork via `/plugin install`) and [`.codex-plugin/`](.codex-plugin/) (Codex) — plus [`AGENTS.md`](AGENTS.md) routing for Cursor / Copilot. Vietnam PDPD planned for v0.5 (deferred while the full Vietnam PDP Law is in draft).
 
 **Audience:** anyone building any app or service that handles personal data of users in Singapore, Thailand, Indonesia, Malaysia, or the Philippines. Tech-agnostic — works whether your stack is Supabase, Firebase, AWS, your own backend, native iOS/Android, Flutter, React Native, web, a headless API, or anything else.
 

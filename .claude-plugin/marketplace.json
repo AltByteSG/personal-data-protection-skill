@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "personal-data-protection",
-      "description": "SEA personal-data-protection compliance reference for engineers — Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA (with the 2024 Amendments — Act A1727), and Philippines Data Privacy Act (RA 10173). Tech-agnostic, organised by where in the stack each obligation lands rather than by statute section. Reference material, not legal advice.",
+      "description": "Multi-agent SEA personal-data-protection compliance reference for engineers — packaged as both a Claude Code skill and a Codex plugin. Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA (Act 709 + A1727), and Philippines Data Privacy Act (RA 10173). Tech-agnostic, organised by where in the stack each obligation lands rather than by statute section. Reference material, not legal advice.",
       "category": "compliance",
       "source": {
         "source": "url",
