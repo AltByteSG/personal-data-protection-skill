@@ -9,6 +9,11 @@ on:
         description: "Version to release, without the leading v (e.g. 0.4.1)"
         required: true
         type: string
+      existing_tag:
+        description: "Release a tag that already exists (backfill a missing Release page)"
+        required: false
+        type: boolean
+        default: false
       draft:
         description: "Create as a draft to review before publishing"
         required: false
@@ -43,19 +48,34 @@ jobs:
 
       # A tag is permanent and consumers pin to it, so every inconsistency is
       # caught before anything is created.
+      # For an existing tag the manifests are checked against that tag's own tree,
+      # not the current branch, which has usually moved on to a later version.
       - name: Validate version against manifests and CHANGELOG
-        run: python3 scripts/release_notes.py "${{ inputs.version }}" --check-only
+        run: |
+          set -euo pipefail
+          if [ "${{ inputs.existing_tag }}" = "true" ]; then
+            python3 scripts/release_notes.py "${{ inputs.version }}" --check-only \
+              --manifest-ref "v${{ inputs.version }}"
+          else
+            python3 scripts/release_notes.py "${{ inputs.version }}" --check-only
+          fi
 
-      - name: Refuse to overwrite an existing tag or release
+      - name: Check tag and release state
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           tag="v${{ inputs.version }}"
           if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
-            echo "::error::tag $tag already exists; delete it or pick a new version"
+            if [ "${{ inputs.existing_tag }}" != "true" ]; then
+              echo "::error::tag $tag already exists; pass existing_tag to release it, or pick a new version"
+              exit 1
+            fi
+          elif [ "${{ inputs.existing_tag }}" = "true" ]; then
+            echo "::error::existing_tag was requested but $tag does not exist"
             exit 1
           fi
+          # A Release page is never silently replaced, in either mode.
           if gh release view "$tag" >/dev/null 2>&1; then
             echo "::error::a release for $tag already exists"
             exit 1
@@ -64,14 +84,20 @@ jobs:
       - name: Generate release notes
         run: python3 scripts/release_notes.py "${{ inputs.version }}" > release-notes.md
 
-      - name: Create tag and release
+      - name: Create release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          gh release create "v${{ inputs.version }}" \
-            --target "${{ github.sha }}" \
-            --title "v${{ inputs.version }}" \
+          tag="v${{ inputs.version }}"
+          # An existing tag is released as-is; gh must not retarget it.
+          target=()
+          if [ "${{ inputs.existing_tag }}" != "true" ]; then
+            target=(--target "${{ github.sha }}")
+          fi
+          gh release create "$tag" \
+            "${target[@]}" \
+            --title "$tag" \
             --notes-file release-notes.md \
             ${{ inputs.draft && '--draft' || '' }}
 

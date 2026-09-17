@@ -91,6 +91,22 @@ def test_manifests_agree_with_changelog_for_current_version():
     assert rn.extract_notes(changelog, version).strip()
 
 
+def test_manifest_ref_reads_from_that_tag():
+    # v0.4.0's manifests say 0.4.0 while the branch has moved on, which is the
+    # whole point of --manifest-ref: backfilling a Release for an existing tag.
+    import subprocess
+    tags = subprocess.run(["git", "tag"], capture_output=True, text=True, cwd=ROOT).stdout.split()
+    if "v0.4.0" not in tags:
+        print("  (skipped: v0.4.0 tag not present)")
+        return
+    rn.check_manifests(ROOT, "0.4.0", ref="v0.4.0")      # must not raise
+    _expect_exit(lambda: rn.check_manifests(ROOT, "0.4.1", ref="v0.4.0"), "wrong version at ref")
+
+
+def test_manifest_ref_rejects_unknown_ref():
+    _expect_exit(lambda: rn.check_manifests(ROOT, "0.4.0", ref="v99.99.99"), "bad ref")
+
+
 if __name__ == "__main__":
     passed = 0
     for name, fn in sorted(globals().items()):

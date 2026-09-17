@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -30,17 +31,29 @@ def fail(msg: str) -> None:
     raise SystemExit(1)
 
 
-def check_manifests(root: Path, version: str) -> None:
+def read_at_ref(ref: str, rel: str) -> str:
+    """Read a file as of a git ref, so an existing tag is checked against its own tree."""
+    result = subprocess.run(["git", "show", f"{ref}:{rel}"],
+                            capture_output=True, text=True, timeout=30)
+    if result.returncode != 0:
+        fail(f"cannot read {rel} at {ref}: {result.stderr.strip()}")
+    return result.stdout
+
+
+def check_manifests(root: Path, version: str, ref: str | None = None) -> None:
     for rel in MANIFESTS:
-        path = root / rel
-        if not path.exists():
-            fail(f"{rel} not found")
-        declared = json.loads(path.read_text(encoding="utf-8")).get("version")
+        if ref:
+            declared = json.loads(read_at_ref(ref, rel)).get("version")
+        else:
+            path = root / rel
+            if not path.exists():
+                fail(f"{rel} not found")
+            declared = json.loads(path.read_text(encoding="utf-8")).get("version")
         if declared != version:
+            where = f"{rel} at {ref}" if ref else rel
             fail(
-                f"{rel} declares version {declared!r}, but {version!r} is being "
-                f"released. Bump the manifests first — the tag must not disagree "
-                f"with what the plugin reports."
+                f"{where} declares version {declared!r}, but {version!r} is being "
+                f"released. The tag must not disagree with what the plugin reports."
             )
 
 
@@ -69,6 +82,10 @@ def main() -> int:
     parser.add_argument("version", help="Version being released, without the leading v.")
     parser.add_argument("--check-only", action="store_true",
                         help="Validate without printing the notes.")
+    parser.add_argument("--manifest-ref", default=None,
+                        help="Validate manifests as of this git ref instead of the "
+                             "working tree. Use when releasing an existing tag, whose "
+                             "manifests differ from the current branch.")
     args = parser.parse_args()
 
     version = args.version.lstrip("v")
@@ -76,11 +93,12 @@ def main() -> int:
         fail(f"{args.version!r} is not a MAJOR.MINOR.PATCH version")
 
     root = Path(__file__).resolve().parent.parent
-    check_manifests(root, version)
+    check_manifests(root, version, args.manifest_ref)
     notes = extract_notes((root / "CHANGELOG.md").read_text(encoding="utf-8"), version)
 
     if args.check_only:
-        print(f"ok: v{version} is consistent across manifests and CHANGELOG.md")
+        at = f" (manifests as of {args.manifest_ref})" if args.manifest_ref else ""
+        print(f"ok: v{version} is consistent across manifests and CHANGELOG.md{at}")
     else:
         print(notes)
     return 0
