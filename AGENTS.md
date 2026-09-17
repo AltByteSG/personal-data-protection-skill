@@ -8,7 +8,7 @@ This file is the **Codex CLI / Cursor / Copilot-friendly entry point** to the sa
 
 The skill content lives under [`skills/personal-data-protection/`](skills/personal-data-protection/) — required by the Claude Code plugin format. All internal links in this file point into that subdirectory.
 
-If you are an agent and the user is working on code that touches personal data — signup, auth, consent, profile fields, notifications, friends, chat, media uploads, location, account deletion, data export, admin tooling, retention/cron, third-party processors, or privacy/T&C documents — follow the steps below.
+If you are an agent and the user is working on code that touches personal data — signup, auth, consent, profile fields, notifications, friends, chat, media uploads, location, account deletion, data export, admin access to personal-data stores, retention/cron, third-party processors, breach response, or privacy/T&C documents — follow the steps below.
 
 ## Step 1 — Identify the active jurisdiction(s)
 

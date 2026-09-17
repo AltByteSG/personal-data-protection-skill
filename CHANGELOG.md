@@ -22,6 +22,11 @@ Each release records the statute versions reflected in the content. When a statu
 - `pyproject.toml` — ruff configuration (`target-version = "py39"`, line length, rule selection). Tool config only: the release version stays in the plugin manifests rather than being duplicated where it could drift.
 - `.markdownlint.json` — disables MD013 (line length). The long lines are jurisdiction comparison tables and verbatim statute citations, where wrapping would hurt readability; MD032 and the rest stay enforced.
 
+### Changed — skill description
+
+- `skills/personal-data-protection/SKILL.md` — trimmed the frontmatter `description` from 557 to 429 characters (~32 tokens). Skill descriptions load into every session for routing whether or not the skill fires, so this is the one surface paid on every conversation. Dropped the statute version annotations (`27/2022`, `B.E. 2562 (2019)`, `2010 (with the 2024 Amendments)`) — nobody routes on them, and each jurisdiction README records the version authoritatively. Kept `RA 10173`, which is a genuine alias the Philippine law is cited by. Dropped the trailing sentence describing first-use behaviour, which is runtime workflow rather than a routing criterion and is already implemented by Step 1. Narrowed `admin access controls` to `admin access to personal-data stores` so the skill stops matching generic RBAC / IAM questions.
+- `AGENTS.md` — mirrored the same narrowing in its agent trigger sentence, and added `breach response`, which `SKILL.md` listed but `AGENTS.md` had omitted despite `checklists/breach-response.md` being a core entry point.
+
 ### Fixed
 
 - `SKILL.md` — added the missing blank line before the statute-version list (MD032).

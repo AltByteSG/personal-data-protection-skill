@@ -1,6 +1,6 @@
 ---
 name: personal-data-protection
-description: Personal-data-protection compliance reference for engineers building applications subject to Singapore PDPA, Indonesia UU PDP 27/2022, Thailand PDPA B.E. 2562 (2019), Malaysia PDPA 2010 (with the 2024 Amendments), or Philippines DPA (RA 10173). Use when reviewing or modifying code that touches personal data — signup/auth/consent, data export, account deletion, retention/purging, admin access controls, third-party processors, breach response, or privacy/T&C documents. On first use in a new project, asks which jurisdiction(s) apply and loads only those.
+description: Personal-data-protection compliance reference for engineers building applications subject to Singapore PDPA, Indonesia UU PDP, Thailand PDPA, Malaysia PDPA, or Philippines DPA (RA 10173). Use when reviewing or modifying code that touches personal data — signup/auth/consent, data export, account deletion, retention/purging, admin access to personal-data stores, third-party processors, breach response, or privacy/T&C documents.
 ---
 
 # Personal Data Protection Compliance — Layered Reference
