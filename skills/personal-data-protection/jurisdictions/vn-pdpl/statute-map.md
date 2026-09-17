@@ -4,7 +4,7 @@
 
 Reverse lookup. Use when citing an article in a PR description, audit response, or breach notification. For day-to-day work, use the layer files and obligation files instead.
 
-References use the article numbering of **Law No. 91/2025/QH15** and **Decree 356/2025/NĐ-CP**. Article text was read in Vietnamese, which is the binding version.
+References use the article numbering of **Law No. 91/2025/QH15** and **Decree 356/2025/NĐ-CP**. Article text was read in **Vietnamese**, which is the binding version; the English topic descriptions below are the maintainer's unofficial renderings. No official English translation was available at the last verification date — see the translation caveat in [README.md](README.md).
 
 ## Law 91/2025/QH15
 
