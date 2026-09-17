@@ -1,6 +1,11 @@
 # Personal Data Breach Notification — Điều 23
 
 > ⚠ **Reference material only — not legal advice.** See [DISCLAIMER.md](../../../../../DISCLAIMER.md). Verify against the official statute and consult a qualified DPO / lawyer.
+>
+> **Unofficial translation.** Law 91/2025/QH15 and Decree 356/2025/NĐ-CP have no official
+> English version. English wording below is the maintainer's rendering of the Vietnamese;
+> load-bearing terms carry the original. **In any conflict the Vietnamese wins.** See the
+> translation caveat in [README.md](../README.md).
 
 Vietnam has a **72-hour** clock running from **detection of the violating act**, to the specialised authority under the Ministry of Public Security. The trigger is **harm-based, not scale-based** — there is no affected-count threshold to measure against.
 

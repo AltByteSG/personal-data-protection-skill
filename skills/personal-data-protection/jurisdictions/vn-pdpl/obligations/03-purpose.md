@@ -1,6 +1,11 @@
 # Principles, Data Classification and Purpose — Điều 3, 11, 16, 18 + Decree Điều 3, 4
 
 > ⚠ **Reference material only — not legal advice.** See [DISCLAIMER.md](../../../../../DISCLAIMER.md). Verify against the official statute and consult a qualified DPO / lawyer.
+>
+> **Unofficial translation.** Law 91/2025/QH15 and Decree 356/2025/NĐ-CP have no official
+> English version. English wording below is the maintainer's rendering of the Vietnamese;
+> load-bearing terms carry the original. **In any conflict the Vietnamese wins.** See the
+> translation caveat in [README.md](../README.md).
 
 ## Điều 3 — Protection principles
 
@@ -19,7 +24,9 @@ Principles 2 and 3 are the ones with direct engineering consequences: purpose li
 
 Law Điều 2(2) delegates the catalogue to Government decree. Decree 356/2025/NĐ-CP supplies both halves, and the structure matters: **sensitive is a closed list, basic is the residual**.
 
-### Basic personal data — Decree Điều 3
+### Basic personal data — Decree Điều 3 (`dữ liệu cá nhân cơ bản`)
+
+*Translated list — the Vietnamese original governs.*
 
 1. Surname, middle name and birth name; other names
 2. Date of birth; date of death or disappearance
@@ -35,7 +42,9 @@ Law Điều 2(2) delegates the catalogue to Government decree. Decree 356/2025/N
 
 Item 11 makes this residual: if a field identifies a person and is not in the sensitive list, it is basic by default. There is no "not personal data" gap between the two catalogues.
 
-### Sensitive personal data — Decree Điều 4(1)
+### Sensitive personal data — Decree Điều 4(1) (`dữ liệu cá nhân nhạy cảm`)
+
+*Translated list — the Vietnamese original governs. Where a classification decision is close, check the Vietnamese wording before relying on it.*
 
 - a) Racial or ethnic origin
 - b) Political, religious or belief views
@@ -44,10 +53,10 @@ Item 11 makes this residual: if a field identifies a person and is not in the se
 - đ) **Biometric data, genetic characteristics**
 - e) Sex life, sexual orientation
 - g) Crime and law-violation data collected and stored by law-enforcement agencies
-- h) **Location of the individual determined through positioning services**
+- h) **Location of the individual determined through positioning services** (`vị trí của cá nhân được xác định qua dịch vụ định vị`)
 - i) **Login name and password of an electronic identification account; images of the căn cước / căn cước công dân / chứng minh nhân dân ID cards**
 - k) **Bank account login name and password; bank card information; bank account transaction history; financial and credit information; activity and transaction history in finance, securities and insurance** held at credit institutions, foreign bank branches, payment intermediaries, securities and insurance organisations
-- l) **Behaviour-tracking data — use of telecommunications, social media, online communication and other cyberspace services**
+- l) **Behaviour-tracking data — use of telecommunications, social media, online communication and other cyberspace services** (`dữ liệu theo dõi hành vi`)
 - m) Other personal data that the law requires to be kept secret or strictly secured
 
 **Four of these will catch engineers out**, because they are not sensitive in SG, TH, ID, MY or PH:
@@ -67,8 +76,14 @@ When processing sensitive personal data, organisations **must establish access-l
 
 **Implementation layer:** [03 Data model](../../../layers/03-data-model.md), [04 Controls](../../../layers/04-controls-and-processes.md).
 
-## Điều 11, 16, 18 — Collection, publication, other processing
+## Điều 16 — Publication, and the default-visibility trap
 
-Điều 11 covers collection, analysis and aggregation; Điều 16 covers **publication** of personal data; Điều 18 covers other processing activities. Read Điều 16 before building any feature that makes a profile or user content publicly visible by default.
+Điều 16 governs making personal data **public**. Read it before shipping any feature where a profile, post, list or activity is visible by default to anyone other than the user.
+
+The failure mode is not a deliberate "publish" button — it is a default. A new profile field that inherits the profile's existing visibility, a social graph that exposes who follows whom, an activity feed that leaks a private action: each publishes personal data without anyone deciding to.
+
+**Practical check on any new user-visible field:** what is its default audience, and did the user choose it? Điều 9(4)(d) is relevant here too — silence is not consent, so a default-public field is not made lawful by the user having failed to change it.
+
+Điều 11 (collection, analysis and aggregation) and Điều 18 (other processing) carry the general purpose-limitation discipline into specific activities; the engineering constraint is the one in Điều 3(2) above — collect only within the stated purpose.
 
 **Implementation layer:** [05 Feature/UX](../../../layers/05-feature-ux.md), [06 Disclosure](../../../layers/06-disclosure.md).

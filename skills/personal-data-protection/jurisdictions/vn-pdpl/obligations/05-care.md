@@ -1,6 +1,11 @@
 # Security, Impact Assessment and Cross-Border Transfer — Điều 12, 20, 21, 22
 
 > ⚠ **Reference material only — not legal advice.** See [DISCLAIMER.md](../../../../../DISCLAIMER.md). Verify against the official statute and consult a qualified DPO / lawyer.
+>
+> **Unofficial translation.** Law 91/2025/QH15 and Decree 356/2025/NĐ-CP have no official
+> English version. English wording below is the maintainer's rendering of the Vietnamese;
+> load-bearing terms carry the original. **In any conflict the Vietnamese wins.** See the
+> translation caveat in [README.md](../README.md).
 
 This is where Vietnam departs most sharply from the other jurisdictions in this skill. Two impact-assessment dossiers must be **filed with the regulator**, each within **60 days**, and the cross-border definition is broad enough to catch ordinary architecture.
 

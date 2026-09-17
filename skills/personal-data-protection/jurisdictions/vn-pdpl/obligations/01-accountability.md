@@ -1,6 +1,11 @@
 # Accountability and Governance — Điều 33–37 + Decree Điều 13–16
 
 > ⚠ **Reference material only — not legal advice.** See [DISCLAIMER.md](../../../../../DISCLAIMER.md). Verify against the official statute and consult a qualified DPO / lawyer.
+>
+> **Unofficial translation.** Law 91/2025/QH15 and Decree 356/2025/NĐ-CP have no official
+> English version. English wording below is the maintainer's rendering of the Vietnamese;
+> load-bearing terms carry the original. **In any conflict the Vietnamese wins.** See the
+> translation caveat in [README.md](../README.md).
 
 ## Điều 33 — Personal data protection force
 
@@ -43,6 +48,20 @@ Limb (đ) makes processor selection a named statutory duty — vendor due dilige
 
 **Implementation layer:** [02 Architecture](../../../layers/02-architecture.md), [04 Controls](../../../layers/04-controls-and-processes.md).
 
-## Điều 34, 35, 36 — Standards, inspection, state management
+## What an inspection will ask you for — Điều 35 + Decree Điều 31
 
-Điều 34 covers technical standards and regulations; Điều 35 covers **inspection** of protection activities; Điều 36 covers state management responsibility. Decree Điều 31 details inspection. Engineering surface is limited — the relevant point is that inspection is a live possibility, and the artefacts it asks for are the ones named above: the filed dossiers, the policies, the self-assessment, the incident records.
+Inspection of protection activities is a live possibility, not a theoretical one: for cross-border transfers the regulator may inspect **annually as of right**, and without notice after a violation or data-loss incident (Điều 20(4)).
+
+Everything it can ask for is an artefact you either have or do not. Keep these retrievable, not reconstructable:
+
+- [ ] The **filed** processing-impact dossier, and its acknowledgement (Điều 21(1))
+- [ ] The **filed** cross-border transfer dossier (Điều 20(2)), matching your current sub-processor list
+- [ ] Evidence of the 6-monthly dossier review (Điều 22)
+- [ ] Named data-protection personnel or the service-provider contract (Điều 33(2))
+- [ ] The periodic compliance self-assessment (Decree Điều 14(1)(c))
+- [ ] Consent records reproducible per purpose, in a verifiable format (Điều 9(3))
+- [ ] Incident records and any `biên bản` confirmations (Điều 23(2))
+
+The gap that bites is usually the second item: the transfer dossier is filed once and the vendor list moves on without it. Wire the dossier update into vendor onboarding.
+
+Điều 34 (technical standards) and Điều 36 (state management) allocate responsibility between state bodies and carry no engineering surface.

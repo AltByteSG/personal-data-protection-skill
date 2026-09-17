@@ -1,6 +1,11 @@
 # Data Subject Rights — Điều 4, 13, 14, 15, 17
 
 > ⚠ **Reference material only — not legal advice.** See [DISCLAIMER.md](../../../../../DISCLAIMER.md). Verify against the official statute and consult a qualified DPO / lawyer.
+>
+> **Unofficial translation.** Law 91/2025/QH15 and Decree 356/2025/NĐ-CP have no official
+> English version. English wording below is the maintainer's rendering of the Vietnamese;
+> load-bearing terms carry the original. **In any conflict the Vietnamese wins.** See the
+> translation caveat in [README.md](../README.md).
 
 Điều 4 enumerates the rights; Điều 13–17 give the operative mechanics for correction, deletion, provision and transfer.
 
@@ -23,7 +28,12 @@
 
 ## Điều 13 — Correction of personal data
 
-The correction right in Điều 4(1)(c) is operationalised here. Build a self-service edit surface where the field allows it, and a documented channel where it does not.
+Build a self-service edit surface where the field allows it, and a documented channel where it does not.
+
+**Two traps:**
+
+- **Corrections must reach derived copies.** A corrected name that stays wrong in the search index, the analytics warehouse or a vendor's records is still wrong. Decide per field whether correction propagates or the derived copy is regenerated.
+- **Correction and restriction interact.** Điều 10(1) lets a subject request restriction precisely because they doubt the data's **accuracy** — so a disputed field may need to be frozen rather than silently overwritten while the dispute is open.
 
 ## Điều 14 — Deletion, destruction, de-identification
 
@@ -35,10 +45,16 @@ The correction right in Điều 4(1)(c) is operationalised here. Build a self-se
 
 ## Điều 15 — Provision of personal data
 
-The access/export right in Điều 4(1)(d). The export must cover **all** personal data held about the subject — a new field added anywhere must reach the export path.
+The export must cover **all** personal data held about the subject, which in Vietnam is a wider set than engineers usually assume: Decree Điều 3(11) makes any identifying field basic personal data by default, so anything keyed to the user is in scope unless it has been de-identified.
+
+**Practical consequence:** the export path is the single thing most likely to silently fall out of date. Every new column, event stream or vendor-held record is in scope from the day it exists. Treat "is it in the export?" as a required review item on any migration adding a user-keyed field — [`new-data-field.md`](../../../checklists/new-data-field.md) step 4 covers this.
+
+Behaviour-tracking events are **sensitive** under Decree Điều 4(1)(l), so analytics data is both exportable and subject to the Điều 4(2) access controls — the export path itself needs to be an access-controlled surface.
 
 ## Điều 17 — Transfer of personal data
 
-Transfer between parties within Vietnam. Distinct from **Điều 20**, which governs transfer across the border — do not conflate them; only Điều 20 carries the 60-day filing duty.
+Transfer between parties **within Vietnam**. Distinct from Điều 20, which governs transfer across the border — only Điều 20 carries the 60-day filing duty.
+
+**Check which one you are doing before designing the flow.** The test is not who the counterparty is but where the processing happens: handing data to a Vietnamese company that processes it on infrastructure outside Vietnam is a **cross-border** transfer under Điều 20(1)(c), not a domestic one under Điều 17.
 
 **Implementation layer:** [02 Architecture](../../../layers/02-architecture.md).

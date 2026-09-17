@@ -1,5 +1,11 @@
 # Vietnam PDPL — Statute ↔ Layer Cross-Reference
 
+>
+> **Unofficial translation.** Law 91/2025/QH15 and Decree 356/2025/NĐ-CP have no official
+> English version. English wording below is the maintainer's rendering of the Vietnamese;
+> load-bearing terms carry the original. **In any conflict the Vietnamese wins.** See the
+> translation caveat in [README.md](README.md).
+
 > ⚠ **Reference material only — not legal advice.** See [DISCLAIMER.md](../../../../DISCLAIMER.md). Verify against the official statute and consult a qualified DPO / lawyer.
 
 Reverse lookup. Use when citing an article in a PR description, audit response, or breach notification. For day-to-day work, use the layer files and obligation files instead.

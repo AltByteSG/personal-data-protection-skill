@@ -8,6 +8,23 @@ Each release records the statute versions reflected in the content. When a statu
 
 — No unreleased changes.
 
+## [0.5.1] — 2026-09-17
+
+Quality pass on the Vietnam files shipped in 0.5.0. No statute content changed; both issues are about how that content is presented to an engineer.
+
+### Changed — translations are now marked where they are used
+
+0.5.0 declared the translation caveat once, in `vn-pdpl/README.md`. That is not where someone reads a provision. Every obligation file and the statute map now carry an inline banner stating that the English is the maintainer's rendering of the Vietnamese and that the Vietnamese wins, and the two data catalogues in `03-purpose.md` — around two dozen items translated item by item — are explicitly labelled as translated lists rather than presented as quotations. Load-bearing terms now carry the Vietnamese alongside, including `dữ liệu cá nhân nhạy cảm`, `dữ liệu theo dõi hành vi` and the positioning-service location wording.
+
+### Changed — engineering-first audit of the Vietnam obligation files
+
+Applies the same bar the v0.3.0 audit applied to the Thailand and Indonesia files. Four passages restated what an article was about rather than what an engineer does with it:
+
+- `01-accountability.md` — the Điều 34/35/36 paragraph was pure governance recitation. Replaced with **what an inspection actually asks for**, as a retrievable-artefact checklist, and the observation that the gap which bites is a cross-border dossier filed once while the vendor list moved on. Điều 34 and 36 are noted as carrying no engineering surface rather than summarised.
+- `04-access-correction.md` — Điều 13, 15 and 17 were one-line restatements. Now cover the traps: corrections that never reach derived copies, the interaction between correction and the Điều 10 restriction right on disputed accuracy, why the export path is the thing most likely to silently fall out of date, and the test for whether a transfer is domestic (Điều 17) or cross-border (Điều 20(1)(c)) — which turns on where processing happens, not who the counterparty is.
+- `08-sector-specific.md` — the Decree Điều 8–12 list became a design-time table keyed to the architectural decision each provision constrains. The blockchain row (immutability colliding with the Điều 13 correction and Điều 14 deletion rights) and the AI row (conditions on training data, decided before data reaches a training set) are the two that surface too late to fix cheaply.
+- `03-purpose.md` — the Điều 11/16/18 paragraph became a section on the default-visibility trap: publication rarely happens via a deliberate button, it happens via a default audience nobody chose, and Điều 9(4)(d) means a default-public field is not made lawful by the user failing to change it.
+
 ## [0.5.0] — 2026-09-17
 
 Adds **Vietnam** as the sixth populated jurisdiction, written against **Law No. 91/2025/QH15** (passed 26 June 2025, in force 1 January 2026) read with **Decree 356/2025/NĐ-CP** (31 December 2025). Vietnam had been deferred since v0.3 on the basis that the Personal Data Protection Law was still in draft; that Law is now in force and the Decree it was waiting on has replaced Decree 13/2023/NĐ-CP.

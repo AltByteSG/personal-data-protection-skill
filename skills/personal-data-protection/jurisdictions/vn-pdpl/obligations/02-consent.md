@@ -1,6 +1,11 @@
 # Consent and Lawful Processing — Điều 9, 10, 19
 
 > ⚠ **Reference material only — not legal advice.** See [DISCLAIMER.md](../../../../../DISCLAIMER.md). Verify against the official statute and consult a qualified DPO / lawyer.
+>
+> **Unofficial translation.** Law 91/2025/QH15 and Decree 356/2025/NĐ-CP have no official
+> English version. English wording below is the maintainer's rendering of the Vietnamese;
+> load-bearing terms carry the original. **In any conflict the Vietnamese wins.** See the
+> translation caveat in [README.md](../README.md).
 
 Vietnam does not offer a GDPR-style menu of lawful bases. **Consent is the rule** (Điều 9), and Điều 19 lists the closed set of cases where processing may proceed without it. Điều 10 governs withdrawal and restriction.
 

@@ -1,6 +1,6 @@
 {
   "name": "personal-data-protection",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "SEA personal-data-protection compliance guidance for engineers modifying code that touches personal data — Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA, and Philippines Data Privacy Act.",
   "author": {
     "name": "AltByte",
