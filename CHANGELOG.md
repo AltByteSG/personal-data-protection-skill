@@ -6,6 +6,15 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
+### Changed — operational guidance consolidated into layer 07
+
+The sub-processor-breach procedure, post-incident record-keeping discipline, and runbook readiness checklist were carried in `id-pdp` and `th-pdpa`'s breach files and **absent from `sg-pdpa`, `my-pdpa` and `ph-dpa` entirely**. They are jurisdiction-neutral, so they now live once in `layers/07-operational.md` under `## Incident response`, and all five jurisdictions reach them through the layer-07 pointers their breach files already carry.
+
+- `skills/personal-data-protection/layers/07-operational.md` — new `Sub-processor / vendor breaches`, `Post-incident records`, and `Runbook readiness checklist` subsections.
+- `skills/personal-data-protection/jurisdictions/id-pdp/obligations/06-breach-notification.md` and `.../th-pdpa/...` — those three sections reduced to their statutory hook plus a pointer. Every citation is retained (ID: Pasal 51, 31, 47; TH: s40(2), s39(8)), as are the jurisdiction-specific readiness items (Bahasa Indonesia and Thai notification templates, Komdigi and PDPC submission specifics).
+
+**Token effect is negative, and that was not the expectation.** The breach files shed ~285 tokens while layer 07 gained ~352, so at five active jurisdictions this nets about +67 tokens and more at fewer. The earlier ~1,287-token estimate counted `What's at stake` and `Penalty exposure` as jurisdiction-neutral; inspection showed both are heavily statutory (14 and 8 citations respectively) and they stayed put. What the change does buy is a single source for operational guidance — five copies drifting apart is how the Singapore breach-clock error survived in two files while a third stated the opposite — and operational coverage for the three jurisdictions that previously had none.
+
 ### Changed — checklist execution order
 
 Both task checklists ran their jurisdiction review near the end, after the steps it should have shaped. An engineer following either linearly wrote the migration, then learned several steps later that the column needed encryption; or drafted privacy-policy copy before discovering MY s7(3) requires it bilingually and PH § 13 requires written consent captured before processing.
