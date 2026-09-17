@@ -6,7 +6,11 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
-— No unreleased changes.
+### Added — release automation
+
+- `.github/workflows/release.yml` — manual (`workflow_dispatch`) release job. Publishing stays deliberate rather than firing on every commit, since statute content should not ship because a merge landed. The job lints, runs both test suites, verifies the requested version against both plugin manifests and CHANGELOG.md, refuses to overwrite an existing tag or release, then creates the tag and the GitHub Release from the CHANGELOG section. Uses the built-in `GITHUB_TOKEN` and `gh`; no third-party actions.
+- `scripts/release_notes.py` — validates a release and emits its notes. Promotes `###` headings one level and rewrites repo-relative links to absolute URLs pinned at the tag, since release pages render outside the repo tree. Runnable locally to preview what a release would publish: `python3 scripts/release_notes.py 0.4.1`.
+- `tests/test_release_notes.py` — 7 tests over extraction, heading promotion, link pinning, and the validation failure paths, including one asserting the manifests and CHANGELOG agree on the current version.
 
 ## [0.4.1] — 2026-09-17
 

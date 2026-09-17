@@ -1,0 +1,84 @@
+name: Release
+
+# Publishing is manual and deliberate: statute content should not ship because
+# a commit landed. Dispatch this once the manifests and CHANGELOG are updated.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release, without the leading v (e.g. 0.4.1)"
+        required: true
+        type: string
+      draft:
+        description: "Create as a draft to review before publishing"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Test
+        run: |
+          python3 tests/test_pdp_check.py
+          python3 tests/test_release_notes.py
+
+      # A tag is permanent and consumers pin to it, so every inconsistency is
+      # caught before anything is created.
+      - name: Validate version against manifests and CHANGELOG
+        run: python3 scripts/release_notes.py "${{ inputs.version }}" --check-only
+
+      - name: Refuse to overwrite an existing tag or release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="v${{ inputs.version }}"
+          if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+            echo "::error::tag $tag already exists; delete it or pick a new version"
+            exit 1
+          fi
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "::error::a release for $tag already exists"
+            exit 1
+          fi
+
+      - name: Generate release notes
+        run: python3 scripts/release_notes.py "${{ inputs.version }}" > release-notes.md
+
+      - name: Create tag and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create "v${{ inputs.version }}" \
+            --target "${{ github.sha }}" \
+            --title "v${{ inputs.version }}" \
+            --notes-file release-notes.md \
+            ${{ inputs.draft && '--draft' || '' }}
+
+      - name: Summary
+        run: |
+          {
+            echo "### Released v${{ inputs.version }}"
+            echo
+            echo "<${{ github.server_url }}/${{ github.repository }}/releases/tag/v${{ inputs.version }}>"
+          } >> "$GITHUB_STEP_SUMMARY"
