@@ -50,15 +50,22 @@ jobs:
       # caught before anything is created.
       # For an existing tag the manifests are checked against that tag's own tree,
       # not the current branch, which has usually moved on to a later version.
-      - name: Validate version against manifests and CHANGELOG
+      # Resolved once here: every later step reads MANIFEST_REF_ARG, so the two
+      # invocations of release_notes.py cannot drift apart.
+      - name: Resolve manifest ref
         run: |
           set -euo pipefail
           if [ "${{ inputs.existing_tag }}" = "true" ]; then
-            python3 scripts/release_notes.py "${{ inputs.version }}" --check-only \
-              --manifest-ref "v${{ inputs.version }}"
+            echo "MANIFEST_REF_ARG=--manifest-ref v${{ inputs.version }}" >> "$GITHUB_ENV"
           else
-            python3 scripts/release_notes.py "${{ inputs.version }}" --check-only
+            echo "MANIFEST_REF_ARG=" >> "$GITHUB_ENV"
           fi
+
+      - name: Validate version against manifests and CHANGELOG
+        run: |
+          set -euo pipefail
+          # shellcheck disable=SC2086
+          python3 scripts/release_notes.py "${{ inputs.version }}" --check-only $MANIFEST_REF_ARG
 
       - name: Check tag and release state
         env:
@@ -82,7 +89,10 @@ jobs:
           fi
 
       - name: Generate release notes
-        run: python3 scripts/release_notes.py "${{ inputs.version }}" > release-notes.md
+        run: |
+          set -euo pipefail
+          # shellcheck disable=SC2086
+          python3 scripts/release_notes.py "${{ inputs.version }}" $MANIFEST_REF_ARG > release-notes.md
 
       - name: Create release
         env:
