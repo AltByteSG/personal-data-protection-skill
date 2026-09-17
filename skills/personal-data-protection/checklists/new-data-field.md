@@ -80,6 +80,7 @@ For each active jurisdiction, confirm:
 - [ ] **Thailand PDPA** — six-base structure (s24); chosen lawful basis documented. If the field is sensitive (s26 broad list), explicit consent dialog required.
 - [ ] **Indonesia UU PDP** — six-base structure (Pasal 20); chosen lawful basis documented. If the field is "Specific" Personal Data (Pasal 4: health, biometric, genetic, criminal, children's, financial), explicit consent + **DPIA trigger check** (Pasal 34). RoPA updated (Pasal 31).
 - [ ] **Malaysia PDPA** — basis under s6 (consent default + s6(2) carve-outs); s6(3) data-minimisation test (lawful purpose + necessity + non-excessive). If sensitive (s4 incl. **biometric data**), explicit consent under s40(1)(a) + separate consent screen. Recipients list update (s44).
+- [ ] **Philippines DPA** — lawful criteria under § 12 (personal information) or § 13 (sensitive personal information); SPI is a **closed statutory list** (race, marital status, age, religion, health, education, genetic, government-issued identifiers, and proceedings) — if the field lands in it, § 13 consent must be **written, electronic-signed, and obtained before processing**. Confirm the field is covered by the NPC-registered processing system description (§ 24 IRR).
 
 ## 10. Sensitive data extra steps
 

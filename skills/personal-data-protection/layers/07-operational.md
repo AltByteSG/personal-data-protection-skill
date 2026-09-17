@@ -27,7 +27,7 @@ Most PDP-family statutes treat as notifiable:
 
 - A breach affecting at least N individuals (the "significant scale" threshold; varies by jurisdiction)
 - A breach involving sensitive categories at any scale (auth credentials, health, location-with-identity, children's data, financial info, private communications)
-- An internal-only access (e.g. curious admin) is typically NOT notifiable as a breach but IS a personal offence under the individual-criminal-liability provisions
+- An internal-only access (e.g. curious admin) is **not universally carved out — check the active jurisdiction before closing one without notifying.** SG has an explicit exclusion (s26B(4)); **TH does not** — under s37(1) it remains a breach and notifiability falls to the risk assessment. ID / MY / PH carry no explicit carve-out either, so treat the assessment as required. In every jurisdiction it IS a personal offence under the individual-criminal-liability provisions
 
 ## Retention sweeps
 

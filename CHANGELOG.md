@@ -6,7 +6,39 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
-— No unreleased changes.
+Correctness and coverage pass following an external skill review. No statute
+version changes — the underlying statutes reflected are unchanged from 0.4.0.
+
+### Fixed — factual corrections
+
+- [`skills/personal-data-protection/jurisdictions/_index.md`](skills/personal-data-protection/jurisdictions/_index.md) and [`skills/personal-data-protection/jurisdictions/sg-pdpa/README.md`](skills/personal-data-protection/jurisdictions/sg-pdpa/README.md) — corrected the claim that Singapore's 3-calendar-day breach clock is the strictest. SG s26D(1) runs from **assessment**, while the MY / TH / ID / PH 72-hour clocks run from **awareness / discovery / knowledge**, so SG is operationally *looser* and does not control the multi-jurisdiction deadline. Both files previously contradicted the (correct) note already carried in `templates/INCIDENT_RESPONSE.md.template`.
+- [`skills/personal-data-protection/layers/07-operational.md`](skills/personal-data-protection/layers/07-operational.md) and [`skills/personal-data-protection/checklists/breach-response.md`](skills/personal-data-protection/checklists/breach-response.md) — the "internal-only access is not notifiable" shortcut is now qualified per jurisdiction. It is an explicit SG carve-out (s26B(4)); TH has none (s37(1) — still a breach, notifiability per risk assessment), and ID / MY / PH carry no explicit carve-out either. Previously stated without qualifier, contradicting `th-pdpa/obligations/06-breach-notification.md`.
+
+### Added — Philippines coverage completed
+
+v0.4.0 added the `ph-dpa` obligation tree and extended the top-level surfaces, but the task checklists and the incident-response runbook template were missed. PH is now present in all of them:
+
+- [`skills/personal-data-protection/checklists/breach-response.md`](skills/personal-data-protection/checklists/breach-response.md) — PH row in the critical-timer table (72h from knowledge to **NPC and subjects in parallel**, annual Security Incident Report by 31 March, § 30 concealment offence).
+- [`skills/personal-data-protection/templates/INCIDENT_RESPONSE.md.template`](skills/personal-data-protection/templates/INCIDENT_RESPONSE.md.template) — PH row in the statutory-clocks table, NPC portal, and PH added to the active-jurisdictions placeholder.
+- [`skills/personal-data-protection/checklists/new-feature.md`](skills/personal-data-protection/checklists/new-feature.md) — PH block in the Step 8 jurisdiction review (§ 13 closed SPI list, § 16(b) objection to automated processing / profiling, § 16(e) erasure-or-blocking, § 20(f) parallel breach lane, § 34 / § 30 liability).
+- [`skills/personal-data-protection/checklists/new-data-field.md`](skills/personal-data-protection/checklists/new-data-field.md) — PH bullet in the Step 9 jurisdiction check (§ 12 / § 13 lawful criteria, written or electronically signed SPI consent before processing, § 24 IRR registered processing-system description).
+- [`skills/personal-data-protection/checklists/new-vendor.md`](skills/personal-data-protection/checklists/new-vendor.md) — PH row in the Step 10 jurisdiction notes (§ 21 PIC accountability with no whitelist or SCC regime, § 14 written outsourcing agreement, NPC Circular 2020-03).
+- [`README.md`](README.md) — `ph-dpa` added to the jurisdiction-code list in the guardrail setup section, which had only listed four codes.
+
+### Fixed — `scripts/pdp-check-changed-files.py`
+
+- **Personal-data keyword scan missed the two dominant field-naming conventions.** `_` is a word character and `-` sits flush against one, so `\bemail\b` never matched `email_address`, `emailAddress`, or `email-address`. The scanner only fired on bare words and prose, silently skipping `phone_number`, `passport_number`, `nationalId`, `deleteAccount`, `auditLog` and similar. Identifiers are now split on snake_case, kebab-case, camelCase and acronym boundaries before matching.
+- Date-of-birth variants `birthday`, `birth_date` and `date_of_birth` were missed by `birth(date)?`; now covered.
+- `subprocess.run` had no `timeout` — a hung git process blocked the pre-commit hook indefinitely. Now bounded at 30s.
+- A malformed `.pdp-compliance.json` raised a raw `JSONDecodeError` traceback; now reported as a readable config error. Unreadable config files are handled the same way.
+- Jurisdiction codes from config were never validated, so a typo (`sg-pdps`) was silently accepted and yielded zero coverage. Unknown codes are now rejected, matching the existing `reviewPolicy` behaviour.
+- Git failures now name the failing subcommand instead of emitting bare stderr.
+
+### Changed — `scripts/pdp-check-changed-files.py`
+
+- Dropped the unused `mode` read and its line in the output. The field stays valid in `.pdp-compliance.json` — it is agent-facing guidance on resolving conflicting obligations, and the script never resolved obligations. Documented as such in `README.md`.
+- Output no longer hardcodes "Ask Codex"; the repo ships Claude Code, Codex, and Cursor / Copilot entry points.
+- Removed an unused `sys` import (ruff F401), noted the 3.9+ requirement in the module docstring, and replaced the hand-rolled dedup loop with `dict.fromkeys`.
 
 ## [0.4.0] — 2026-05-14
 

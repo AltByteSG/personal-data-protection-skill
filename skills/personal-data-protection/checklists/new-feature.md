@@ -90,6 +90,13 @@ For each active jurisdiction (see SKILL.md Step 1), walk the relevant obligation
 - s12B breach notification — 72h Commissioner / 7d subject (per JPDP Guideline 25 Feb 2025). Confirm the runbook has the MY lane.
 - s43A data portability — if the feature creates a new export surface, satisfy s43A by exposing a structured machine-readable format and a direct-transmission path.
 
+**Philippines DPA** (if active): walk `../jurisdictions/ph-dpa/obligations/01–07`. Particular attention:
+- § 13 sensitive personal information is a **closed statutory list**, not a harm test — if the feature touches any listed category, consent must be written or electronically signed and captured **before** processing.
+- § 16(b) right to object covers **automated processing and profiling** explicitly — any new scoring, ranking, or recommendation surface needs an objection path.
+- § 16(e) right to **erasure or blocking** — the feature must be able to suspend further processing of a record, not only delete it.
+- § 20(f) + NPC Circular 16-03 breach notification — 72h to **NPC and subjects in parallel**. Does this feature widen the breach surface? Add the PH lane to the runbook.
+- § 34 personal liability for responsible officers and **§ 30 concealment as its own offence** — escalation paths must not allow an incident to be quietly closed.
+
 ## 9. Backwards compatibility
 
 - [ ] No client-callable function signature change (or, if required, coordinated with version pinning / force-update).

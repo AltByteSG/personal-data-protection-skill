@@ -178,6 +178,11 @@ Save that as `.pdp-compliance.json` in the consuming project. Use the jurisdicti
 - `th-pdpa` — Thailand PDPA B.E. 2562
 - `id-pdp` — Indonesia UU PDP No. 27/2022
 - `my-pdpa` — Malaysia PDPA 2010 with 2024 Amendments
+- `ph-dpa` — Philippines Data Privacy Act 2012 (RA 10173)
+
+Unknown codes are rejected by the checker rather than silently ignored, so a typo surfaces immediately instead of yielding zero coverage.
+
+`mode` is read by the **agent**, not by `pdp-check-changed-files.py` — it records how you want conflicting obligations resolved when several jurisdictions are active. The script is a tripwire only; it flags files and never resolves obligations.
 
 Then wire the checker into local commits. Example `.pre-commit-config.yaml` in the consuming project:
 
