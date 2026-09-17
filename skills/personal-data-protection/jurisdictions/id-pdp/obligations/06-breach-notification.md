@@ -67,29 +67,16 @@ UU PDP doesn't prescribe channels. Practical sequence:
 2. **In-app banner** on next launch
 3. **Push notification** (only if email + in-app aren't reaching them)
 
-## Sample notification template (drop-in to your runbook)
+## Subject notification content
 
-```
-Subject: Important: a security incident affecting your account
+Pasal 46(2) fixes the minimum content; the drop-in email body lives once in
+[`templates/INCIDENT_RESPONSE.md.template`](../../../templates/INCIDENT_RESPONSE.md.template)
+section 5, so it does not drift per jurisdiction. Two ID-specific points when filling it:
 
-Hi [first name],
-
-On [date], we discovered that [one-line description of what happened].
-We notified the Indonesian regulator on [date].
-
-What data was involved: [bullet list — types of Personal Data]
-What we have done: [containment + remediation steps]
-What you should do: [specific user actions, e.g. reset password, log out everywhere]
-
-We are sorry this happened. Reply to this email for any questions
-and it will reach me directly.
-
-[DPO name]
-Data Protection Officer, [Legal Entity]
-[DPO email]
-```
-
-Save the send log (recipient count, send timestamp) in the incident log.
+- Name **the Indonesian regulator** in the "we notified" line — under Pasal 46(1) the
+  same 72-hour clock covers both the regulator and the Data Subject.
+- ID is the only regime here with **no harm threshold**: every breach notifies the
+  subject, so the template is sent on all incidents, not just significant-harm ones.
 
 ## Public notification (Pasal 46(3))
 

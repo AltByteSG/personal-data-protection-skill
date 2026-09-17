@@ -6,7 +6,26 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
-— No unreleased changes.
+### Removed
+
+- `skills/personal-data-protection/jurisdictions/sg-pdpa/obligations/06-breach-notification.md` — dropped a leftover reference to a specific project ("High-risk PaoPao-style categories") in favour of neutral phrasing. Skill content carries no project-specific names.
+
+### Changed — token footprint
+
+- `SKILL.md` — the jurisdiction status table duplicated the one in `jurisdictions/_index.md` row for row. Replaced with a one-line code list plus a pointer; `_index.md` is now the single source for status and the comparison grid. `SKILL.md` loads on every session, so this is paid every time.
+- `layers/04-controls-and-processes.md` — the backwards-compatibility rules restated `layers/02-architecture.md`. Layer 02 is now canonical and layer 04 carries only its two additions; both files load on a new-feature checklist run.
+- `jurisdictions/id-pdp/obligations/06-breach-notification.md` — the inline sample breach email near-duplicated section 5 of `templates/INCIDENT_RESPONSE.md.template`. Replaced with a pointer to the template plus the two ID-specific points (regulator naming, no harm threshold), so the wording cannot drift per jurisdiction.
+
+### Added — tooling
+
+- `tests/test_pdp_check.py` — 18 tests over `scripts/pdp-check-changed-files.py`: field-name detection across snake_case, kebab-case, camelCase and acronym boundaries (the conventions the pre-0.4.1 scanner silently missed), negative controls, config loading and error paths, jurisdiction and policy validation, and path-rule classification. Runs under pytest or directly with `python3 tests/test_pdp_check.py`.
+- `pyproject.toml` — ruff configuration (`target-version = "py39"`, line length, rule selection). Tool config only: the release version stays in the plugin manifests rather than being duplicated where it could drift.
+- `.markdownlint.json` — disables MD013 (line length). The long lines are jurisdiction comparison tables and verbatim statute citations, where wrapping would hurt readability; MD032 and the rest stay enforced.
+
+### Fixed
+
+- `SKILL.md` — added the missing blank line before the statute-version list (MD032).
+- `scripts/pdp-check-changed-files.py` — import ordering, and `capture_output=True` in place of the separate `stdout`/`stderr` PIPE arguments (ruff I001, UP022).
 
 ## [0.4.1] — 2026-09-17
 

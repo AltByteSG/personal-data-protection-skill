@@ -16,7 +16,6 @@ import re
 import subprocess
 from pathlib import Path
 
-
 DEFAULT_CONFIG = ".pdp-compliance.json"
 VALID_POLICIES = {"warn", "block-on-sensitive-change"}
 VALID_JURISDICTIONS = {"sg-pdpa", "th-pdpa", "id-pdp", "my-pdpa", "ph-dpa"}
@@ -93,8 +92,7 @@ def run_git(args: list[str]) -> str:
         result = subprocess.run(
             ["git", *args],
             check=False,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            capture_output=True,
             text=True,
             timeout=GIT_TIMEOUT_SECONDS,
         )

@@ -37,14 +37,7 @@ Once selected, suggest creating `.pdp-compliance.json` in the project root so fu
 
 Then load only the relevant `jurisdictions/<code>/README.md` files. Cross-jurisdiction comparison lives in [`jurisdictions/_index.md`](jurisdictions/_index.md).
 
-| Code | Jurisdiction | Status |
-|---|---|---|
-| `sg-pdpa` | Singapore PDPA 2012 (post-2020 Amendments) | ✅ populated |
-| `th-pdpa` | Thailand PDPA B.E. 2562 (2019) | ✅ populated |
-| `id-pdp` | Indonesia UU PDP No. 27/2022 | ✅ populated |
-| `my-pdpa` | Malaysia PDPA 2010 (with 2024 Amendments — Act A1727) | ✅ populated |
-| `ph-dpa` | Philippines Data Privacy Act 2012 (RA 10173) | ✅ populated |
-| `vn-pdpd` | Vietnam PDP Decree 13/2023/ND-CP | 🚧 planned for v0.5 (deferred — full PDP Law in draft) |
+Codes: `sg-pdpa`, `th-pdpa`, `id-pdp`, `my-pdpa`, `ph-dpa` — all populated. `vn-pdpd` (Vietnam) is planned for v0.5. Per-jurisdiction status and the full comparison grid live in [`jurisdictions/_index.md`](jurisdictions/_index.md).
 
 Once the user has chosen, persist that choice in `.pdp-compliance.json` when the project allows file changes. If the project cannot accept that file, persist the choice somewhere project-specific (a comment in the project's `AGENTS.md`, `CLAUDE.md`, or equivalent project-instruction file) so subsequent sessions don't need to re-ask.
 
@@ -97,6 +90,7 @@ A new-feature checklist run looks like:
 ## Statute version
 
 Each jurisdiction's `README.md` records:
+
 - Which version of the statute the obligation files reflect
 - When the content was last verified against official sources
 - Pending amendments to watch for
