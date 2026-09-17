@@ -37,7 +37,7 @@ Once selected, suggest creating `.pdp-compliance.json` in the project root so fu
 
 Then load only the relevant `jurisdictions/<code>/README.md` files. Cross-jurisdiction comparison lives in [`jurisdictions/_index.md`](jurisdictions/_index.md).
 
-Codes: `sg-pdpa`, `th-pdpa`, `id-pdp`, `my-pdpa`, `ph-dpa` — all populated. `vn-pdpd` (Vietnam) is planned for v0.5. Per-jurisdiction status and the full comparison grid live in [`jurisdictions/_index.md`](jurisdictions/_index.md).
+Codes: `sg-pdpa`, `th-pdpa`, `id-pdp`, `my-pdpa`, `ph-dpa` — all populated. `vn-pdpl` (Vietnam) is planned for v0.5. Per-jurisdiction status and the full comparison grid live in [`jurisdictions/_index.md`](jurisdictions/_index.md).
 
 Once the user has chosen, persist that choice in `.pdp-compliance.json` when the project allows file changes. If the project cannot accept that file, persist the choice somewhere project-specific (a comment in the project's `AGENTS.md`, `CLAUDE.md`, or equivalent project-instruction file) so subsequent sessions don't need to re-ask.
 

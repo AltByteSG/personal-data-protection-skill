@@ -37,7 +37,7 @@ Then load only the relevant `skills/personal-data-protection/jurisdictions/<code
 | `id-pdp` | Indonesia UU PDP No. 27/2022 | ✅ populated |
 | `my-pdpa` | Malaysia PDPA 2010 (with 2024 Amendments — Act A1727) | ✅ populated |
 | `ph-dpa` | Philippines Data Privacy Act 2012 (RA 10173) | ✅ populated |
-| `vn-pdpd` | Vietnam PDP Decree 13/2023/ND-CP | 🚧 planned for v0.5 (deferred — full PDP Law in draft) |
+| `vn-pdpl` | Vietnam Law on Personal Data Protection 91/2025/QH15 (in force 1 Jan 2026) | 🚧 planned for v0.5 |
 
 Cross-jurisdiction comparison lives in [`skills/personal-data-protection/jurisdictions/_index.md`](skills/personal-data-protection/jurisdictions/_index.md).
 

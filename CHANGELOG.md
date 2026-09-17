@@ -6,6 +6,18 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
+### Fixed — Vietnam status was out of date
+
+The repo stated in eight places that Vietnam's Personal Data Protection Law was still in draft, and pointed at Decree 13/2023/ND-CP as the instrument v0.5 would cover. Both had been overtaken by events:
+
+- **Law on Personal Data Protection No. 91/2025/QH15** was passed by the National Assembly on 26 June 2025 and has been **in force since 1 January 2026**.
+- **Decree 356/2025/ND-CP** (promulgated 31 December 2025) is the guiding decree and replaced Decree 13/2023/ND-CP.
+- The regulator is unchanged: A05 (Department of Cybersecurity and Hi-tech Crime Prevention), Ministry of Public Security.
+
+`README.md`, `AGENTS.md`, `CONTRIBUTING.md`, `skills/personal-data-protection/SKILL.md` and `jurisdictions/_index.md` now describe the Law rather than the draft, and the planned jurisdiction code changes from `vn-pdpd` (Decree) to `vn-pdpl` (Law) to match the instrument. Vietnam remains 🚧 planned for v0.5 — this corrects the status, it does not add coverage.
+
+The original deferral rationale (wait for the Law rather than write against a soon-superseded decree) no longer applies. The remaining blocker on v0.5 is verification of obligation-level content against the official Vietnamese text of Law 91/2025/QH15 and Decree 356/2025/ND-CP.
+
 ### Added — release automation
 
 - `.github/workflows/release.yml` — manual (`workflow_dispatch`) release job. Publishing stays deliberate rather than firing on every commit, since statute content should not ship because a merge landed. The job lints, runs both test suites, verifies the requested version against both plugin manifests and CHANGELOG.md, refuses to overwrite an existing tag or release, then creates the tag and the GitHub Release from the CHANGELOG section. An `existing_tag` mode releases a tag that already exists — used to backfill a missing Release page — validating the manifests against that tag's own tree rather than the current branch, which has usually moved on to a later version. A Release page is never silently replaced in either mode. Uses the built-in `GITHUB_TOKEN` and `gh`; no third-party actions.

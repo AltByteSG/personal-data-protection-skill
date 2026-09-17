@@ -2,7 +2,7 @@
 
 > ⚠ **Reference material only — not legal advice.** See [DISCLAIMER.md](../../../DISCLAIMER.md). Verify against the official statute and consult a qualified DPO / lawyer.
 
-This skill covers Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA, and Philippines DPA today, with Vietnam PDPD planned for v0.5 (deferred while the full Vietnam PDP Law is in draft).
+This skill covers Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA, and Philippines DPA today, with Vietnam PDPL planned for v0.5 (Law 91/2025/QH15, in force since 1 January 2026).
 
 | Jurisdiction | Code | Status |
 |---|---|---|
@@ -11,7 +11,7 @@ This skill covers Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA
 | Indonesia UU PDP No. 27/2022 | [`id-pdp`](id-pdp/) | ✅ Populated |
 | Malaysia PDPA 2010 (with 2024 Amendments — Act A1727) | [`my-pdpa`](my-pdpa/) | ✅ Populated |
 | Philippines Data Privacy Act 2012 (RA 10173) | [`ph-dpa`](ph-dpa/) | ✅ Populated |
-| Vietnam PDP Decree 13/2023/ND-CP | `vn-pdpd` | 🚧 Planned for v0.5 |
+| Vietnam Law on Personal Data Protection 91/2025/QH15 | `vn-pdpl` | 🚧 Planned for v0.5 |
 
 ## Cross-jurisdiction comparison
 

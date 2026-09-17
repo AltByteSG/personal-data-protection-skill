@@ -6,7 +6,7 @@
 
 A multi-agent personal-data-protection compliance reference for engineers — packaged as both a [Claude Code skill](https://docs.claude.com/en/docs/claude-code/skills) and a Codex plugin, with `AGENTS.md` routing for Cursor and Copilot — organised by where in the stack each obligation lands rather than by statute section number.
 
-**Status:** Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA, and Philippines DPA all populated. Repo ships dual plugin manifests — [`.claude-plugin/`](.claude-plugin/) (Claude Code / Cowork via `/plugin install`) and [`.codex-plugin/`](.codex-plugin/) (Codex) — plus [`AGENTS.md`](AGENTS.md) routing for Cursor / Copilot. Vietnam PDPD planned for v0.5 (deferred while the full Vietnam PDP Law is in draft).
+**Status:** Singapore PDPA, Thailand PDPA, Indonesia UU PDP, Malaysia PDPA, and Philippines DPA all populated. Repo ships dual plugin manifests — [`.claude-plugin/`](.claude-plugin/) (Claude Code / Cowork via `/plugin install`) and [`.codex-plugin/`](.codex-plugin/) (Codex) — plus [`AGENTS.md`](AGENTS.md) routing for Cursor / Copilot. Vietnam PDPL planned for v0.5 — the Law is now in force, see below.
 
 **Audience:** anyone building any app or service that handles personal data of users in Singapore, Thailand, Indonesia, Malaysia, or the Philippines. Tech-agnostic — works whether your stack is Supabase, Firebase, AWS, your own backend, native iOS/Android, Flutter, React Native, web, a headless API, or anything else.
 
@@ -21,7 +21,7 @@ This skill is **deliberately SEA-focused**. Most products built in or for the re
 | Indonesia | UU PDP No. 27/2022 | Komdigi | ✅ Populated |
 | Malaysia | PDPA 2010 (with 2024 Amendments — Act A1727) | JPDP | ✅ Populated |
 | Philippines | Data Privacy Act 2012 (RA 10173) | NPC | ✅ Populated |
-| Vietnam | PDP Decree 13/2023/ND-CP | A05 (MPS) | 🚧 Planned for v0.5 (deferred — full PDP Law in draft) |
+| Vietnam | Law on Personal Data Protection 91/2025/QH15 (in force 1 Jan 2026) | A05 (MPS) | 🚧 Planned for v0.5 |
 
 **Not in scope:** GDPR, UK GDPR, CCPA / CPRA and other US state laws, PIPL (China), APPI (Japan), PIPA (Korea), DPDP Act (India), LGPD (Brazil), POPIA (South Africa), Privacy Act 1988 (Australia), PIPEDA (Canada). If your product is also subject to one of these, pair this skill with a jurisdiction-specific reference for that regime.
 
@@ -299,7 +299,9 @@ This skill summarises and references the following statutes. Always defer to the
 
 A future minor release (v0.5) will add Vietnam. See [CHANGELOG.md](CHANGELOG.md) and [`skills/personal-data-protection/jurisdictions/_index.md`](skills/personal-data-protection/jurisdictions/_index.md). Until v0.5 ships, this regime is listed here for awareness only and is **not yet covered** by this skill.
 
-- **Vietnam — Personal Data Protection Decree 13/2023/ND-CP (PDPD).** Regulator: A05 (Department of Cybersecurity and High-Tech Crime Prevention), Ministry of Public Security. The full Personal Data Protection **Law** is drafted and is expected to replace the decree — coverage is deferred so the v0.5 content can be written against the Law where possible, rather than against a soon-superseded decree.
+- **Vietnam — Law on Personal Data Protection No. 91/2025/QH15 (PDPL).** Passed by the National Assembly on 26 June 2025, **in force since 1 January 2026**. Guiding decree: **Decree 356/2025/ND-CP** (promulgated 31 December 2025), which replaced the earlier Personal Data Protection Decree 13/2023/ND-CP. Regulator: A05 (Department of Cybersecurity and High-Tech Crime Prevention), Ministry of Public Security — Vietnam enforces through the MPS rather than an independent data protection authority.
+- The original deferral reason — waiting for the draft Law rather than writing against a soon-superseded decree — **no longer applies**: the Law is enacted and the decree it would have replaced is gone. What remains before v0.5 can ship is verification of the obligation-level content against the official Vietnamese text of Law 91/2025/QH15 and Decree 356/2025/ND-CP.
+- Features that will shape the v0.5 content, reported consistently across practitioner analyses but **not yet verified against the official text**: a 72-hour breach notification clock running from detection; a Data Protection Impact Assessment that must be **filed with A05 within 60 days** of first processing (a submission obligation, unlike every other jurisdiction covered here); a separate Cross-border Transfer Impact Assessment; and fines of up to **5% of prior-year revenue** for cross-border transfer violations, exceeding Indonesia's 2%.
 
 ## Disclaimer
 
@@ -313,7 +315,7 @@ See [PRIVACY.md](PRIVACY.md). **This skill collects no data.** It is documentati
 
 Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Particularly valued:
 
-- Vietnam PDPD jurisdiction content (v0.5 milestone)
+- Vietnam PDPL jurisdiction content (v0.5 milestone) — see the note above; the Law is in force and the blocker is now source verification, not the legislative timetable
 - Stack-specific implementation examples for the layer files (without coupling the layer text itself to any stack)
 - Real-world incident-response notes that generalise
 
