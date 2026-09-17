@@ -6,6 +6,10 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
+— No unreleased changes.
+
+## [0.4.1] — 2026-09-17
+
 Correctness and coverage pass following an external skill review. No statute
 version changes — the underlying statutes reflected are unchanged from 0.4.0.
 
@@ -39,6 +43,18 @@ v0.4.0 added the `ph-dpa` obligation tree and extended the top-level surfaces, b
 - Dropped the unused `mode` read and its line in the output. The field stays valid in `.pdp-compliance.json` — it is agent-facing guidance on resolving conflicting obligations, and the script never resolved obligations. Documented as such in `README.md`.
 - Output no longer hardcodes "Ask Codex"; the repo ships Claude Code, Codex, and Cursor / Copilot entry points.
 - Removed an unused `sys` import (ruff F401), noted the 3.9+ requirement in the module docstring, and replaced the hand-rolled dedup loop with `dict.fromkeys`.
+
+### Statute coverage matrix
+
+No statute versions changed in this release; the matrix is restated in full because v0.4.0 omitted it.
+
+| Jurisdiction | Statute version | Last verified |
+|---|---|---|
+| Singapore PDPA 2012 | Version in force as at 1 May 2026 (reflects 2020 Amendments) | 2026-05-02 |
+| Thailand PDPA B.E. 2562 (2019) | Original 2019 Government Gazette text (PDPC Thailand English translation) | 2026-05-03 |
+| Indonesia UU PDP No. 27/2022 | Original 2022 enactment (full enforcement from 17 Oct 2024) | 2026-05-03 |
+| Malaysia PDPA 2010 (Act 709) | Act 709 as amended by Act A1727 (all provisions in force as at 1 June 2025) | 2026-05-04 |
+| Philippines DPA 2012 (RA 10173) | RA 10173 read with the 2016 NPC IRR and operative NPC Circulars (16-03, 18-01, 2020-03, 2022-04) | 2026-05-14 |
 
 ## [0.4.0] — 2026-05-14
 
@@ -246,7 +262,8 @@ Initial release.
 | Thailand PDPA B.E. 2562 (2019) | Original 2019 text (PDPC Thailand English translation) | 2026-05-03 |
 | Indonesia UU PDP No. 27/2022 | Original 2022 enactment (Bahasa Indonesia binding text) | 2026-05-03 |
 
-[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/AltByteSG/personal-data-protection-skill/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.4.1
 [0.4.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.4.0
 [0.3.1]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.3.1
 [0.3.0]: https://github.com/AltByteSG/personal-data-protection-skill/releases/tag/v0.3.0
