@@ -5,13 +5,13 @@
 | | |
 |---|---|
 | **Statute** | Luật Bảo vệ dữ liệu cá nhân (Law on Personal Data Protection), Law No. 91/2025/QH15 |
-| **Current text reflected** | Law 91/2025/QH15 as passed — 39 articles across 5 chapters. Obligation files are written against the **Vietnamese text**, which is the binding version |
+| **Current text reflected** | Law 91/2025/QH15 (39 articles, 5 chapters) read with **Decree 356/2025/NĐ-CP** (42 articles). Obligation files are written against the **Vietnamese text** of both, which is the binding version |
 | **Last verified** | 2026-09-17 |
 | **Passed** | 26 June 2025, National Assembly XV, 9th session |
 | **In force since** | **1 January 2026** (Điều 38(1)) |
 | **Replaces** | Decree 13/2023/NĐ-CP (17 April 2023), Vietnam's first personal-data framework. Guiding decree for the Law: **Decree 356/2025/NĐ-CP** (31 December 2025) |
 | **Regulator** | `Cơ quan chuyên trách bảo vệ dữ liệu cá nhân` — the specialised personal-data-protection authority **under the Ministry of Public Security** (Điều 33(1)(a)), in practice A05. Vietnam enforces through the MPS, not an independent DPA |
-| **Pending guidance** | The Law delegates substantial detail to Government decree — including the **basic-personal-data catalogue** (Điều 2(2)), impact-assessment dossier contents (Điều 21(7)), and the small-enterprise transition (Điều 38(4)). Track Decree 356/2025/NĐ-CP and subsequent decrees |
+| **Pending guidance** | Decree 356/2025/NĐ-CP supplies the data catalogues (Điều 3, 4), consent methods (Điều 6), dossier procedure (Điều 17–20) and breach form (Điều 28). Điều 38(4) of the Law still delegates the small-enterprise transition detail to further Government regulation |
 
 ## Critical thresholds
 
@@ -54,7 +54,7 @@ The eighth file has no counterpart in the other jurisdictions. Điều 24–32 i
 
 - **Administrative-penalty procedure.** Điều 8(2) routes this through the general law on handling administrative violations. Engineering surface is the exposure, not the procedure.
 - **State-agency processing.** Điều 21(6) exempts competent state agencies from the impact-assessment regime.
-- **The basic-personal-data catalogue.** Điều 2(2) puts it in a Government decree rather than the Law. Until that catalogue is reflected here, treat the basic/sensitive split as **unresolved** — see the note in [03-purpose](obligations/03-purpose.md).
+- **Administrative-penalty tariffs.** The Law sets the caps (Điều 8); the per-offence schedule sits in the general administrative-penalties regime and is out of scope here.
 
 ## Mental model: what makes Vietnam PDPL distinctive (engineering view)
 

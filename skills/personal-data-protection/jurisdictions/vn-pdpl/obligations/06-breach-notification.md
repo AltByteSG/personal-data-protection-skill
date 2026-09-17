@@ -43,6 +43,21 @@ Organisations and individuals notify the specialised authority where:
 
 The specialised authority receives notifications and handles violations.
 
+## Decree Điều 28 — What the notification must contain
+
+The Decree fixes both the content and the channel.
+
+**Content (Điều 28(1)):**
+
+- a) **Nature of the violation** — time, place, the act, the organisations and individuals involved, the **categories of personal data** and the **volume** concerned
+- b) **Contact details** of the data-protection unit or personnel, or of the service provider
+- c) Description of the **possible consequences and damage**
+- d) Description of the **measures taken** to resolve and mitigate
+
+**Channel (Điều 28(2)):** submitted to the specialised authority **or via the national personal-data-protection portal**, using **Form No. 08** in the Decree's Appendix.
+
+**Operationalisation:** pre-fill Form No. 08 before you need it, and make sure your incident log captures the fields it asks for — especially *data categories* and *volume*, which are hard to reconstruct after the fact under time pressure. Điều 29 covers notification specifically for sensitive personal data.
+
 ## Examples that should be triaged
 
 Use the general detection-signal and triage guidance in [layer 07 Operational](../../../layers/07-operational.md#sub-processor--vendor-breaches). VN-specific additions:
@@ -56,6 +71,7 @@ Use the general detection-signal and triage guidance in [layer 07 Operational](.
 General readiness items: [layer 07 Operational](../../../layers/07-operational.md#runbook-readiness-checklist). VN-specific:
 
 - [ ] Detection timestamp captured at first signal — the 72h clock runs from here, with no assessment buffer
-- [ ] Notification route to the specialised authority (Ministry of Public Security) confirmed, with two people holding access
+- [ ] **Form No. 08** (Decree Appendix) pre-filled; route confirmed — specialised authority or the national personal-data-protection portal — with two people holding access
 - [ ] `biên bản` confirmation-record template pre-staged (Điều 23(2))
+- [ ] Incident log captures **data categories and volume** (Decree Điều 28(1)(a)) — hard to reconstruct later
 - [ ] Triage rules cover the Điều 23(3)(b)/(c) non-security cases, not only leaks
