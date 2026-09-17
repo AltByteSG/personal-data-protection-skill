@@ -57,6 +57,13 @@ For each active jurisdiction (see SKILL.md Step 1), walk the relevant obligation
 - § 20(f) + NPC Circular 16-03 breach notification — 72h to **NPC and subjects in parallel**. Does this feature widen the breach surface? Add the PH lane to the runbook.
 - § 34 personal liability for responsible officers and **§ 30 concealment as its own offence** — escalation paths must not allow an incident to be quietly closed.
 
+**Vietnam PDPL** (if active): walk `../jurisdictions/vn-pdpl/obligations/01–08`. Particular attention:
+- **Điều 21 / Điều 20 — the assessments are *filed*, not just held.** One original of the processing-impact dossier to the authority within **60 days of first processing**, and a separate cross-border dossier within **60 days of first transfer**. The clock starts from your own first action, silently.
+- **Điều 20(1)(c) — using any platform outside Vietnam** to process data collected in Vietnam is a cross-border transfer. A foreign-region database, analytics SaaS or model API puts the feature in scope on day one.
+- **Decree Điều 4(1)(l)** — behaviour-tracking data on online services is **sensitive**. If the feature adds analytics events, it is a sensitive-data feature.
+- **Điều 37(1)(h)** — you must prevent unauthorised collection from your own systems, so rate limiting and enumeration defence on endpoints exposing personal data are compliance measures here.
+- **Điều 24–32 + Decree Điều 8–12** — check the sector overlay: children, employment, health, finance, advertising, social media, big data / AI / blockchain, cloud, location and biometrics, public recording.
+
 ## 3. Architecture review ([layer 02](../layers/02-architecture.md))
 
 - [ ] No raw queries bypass per-user data isolation. Every read filters by current-user identity, enforced at the platform level (RLS or equivalent), not just at the application level.

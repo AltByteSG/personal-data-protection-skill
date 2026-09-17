@@ -122,6 +122,14 @@ def test_malformed_config_reports_readable_error():
         _expect_exit(lambda: pdp.load_config(root, ".pdp-compliance.json"), "invalid JSON")
 
 
+def test_vietnam_code_is_accepted():
+    # vn-pdpl (a Law) not vn-pdpd (the superseded Decree) — see CHANGELOG v0.4.1.
+    assert "vn-pdpl" in pdp.VALID_JURISDICTIONS
+    assert "vn-pdpd" not in pdp.VALID_JURISDICTIONS
+    config = {"personalDataProtection": {"jurisdictions": ["vn-pdpl"]}}
+    assert pdp.jurisdictions_from(config) == ["vn-pdpl"]
+
+
 def test_unknown_jurisdiction_code_is_rejected():
     config = {"personalDataProtection": {"jurisdictions": ["sg-pdps"]}}
     _expect_exit(lambda: pdp.jurisdictions_from(config), "sg-pdps")

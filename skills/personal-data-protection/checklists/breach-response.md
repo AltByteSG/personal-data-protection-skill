@@ -35,8 +35,9 @@ Once you assess an incident as "notifiable" per your active jurisdiction's thres
 | Thailand PDPA | **72 hours** from awareness (s37(4)) | If "high risk to rights and freedoms" |
 | Malaysia PDPA | **72 hours** from discovery (s12B(1) + JPDP Guideline 25 Feb 2025) | **Within 7 days** of Commissioner notification, where significant harm (s12B(2)) |
 | Philippines DPA | **72 hours** from knowledge / reasonable belief (NPC Circular 16-03 § 12(a)) — **to NPC *and* subjects in parallel**; plus an **annual** Security Incident Report by 31 March | **Same 72 hours**, not sequential (§ 20(f) RA 10173). **§ 30 makes concealment its own offence** (1.5–5y + ₱500k–₱1M) |
+| Vietnam PDPL | **72 hours** from **detection of the act** (Điều 23(1)) — no assessment buffer. Trigger is **harm-based**, incl. honour and dignity; no scale threshold. **Form No. 08** via the authority or the national portal (Decree Điều 28(2)) | Not a fixed statutory clock; Điều 23(3) separately makes **purpose-creep and broken rights paths** notifiable in their own right |
 
-For SG the clock starts at **assessment**; for TH / ID / MY / PH it starts at **awareness / discovery / knowledge** — so in a multi-jurisdiction incident one of those, not SG, is the binding deadline. PH is the only regime here where *failing to notify* is itself a criminal offence (§ 30). Your runbook has the full assessment matrix per active jurisdiction.
+For SG the clock starts at **assessment**; for TH / ID / MY / PH it starts at **awareness / discovery / knowledge** — so in a multi-jurisdiction incident one of those, not SG, is the binding deadline. PH is the only regime here where *failing to notify* is itself a criminal offence (§ 30). **VN is tighter still**: the clock runs from *detection of the violating act*, with no assessment step in between. Your runbook has the full assessment matrix per active jurisdiction.
 
 ## Do not use Claude to:
 

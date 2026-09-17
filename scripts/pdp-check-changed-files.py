@@ -18,7 +18,7 @@ from pathlib import Path
 
 DEFAULT_CONFIG = ".pdp-compliance.json"
 VALID_POLICIES = {"warn", "block-on-sensitive-change"}
-VALID_JURISDICTIONS = {"sg-pdpa", "th-pdpa", "id-pdp", "my-pdpa", "ph-dpa"}
+VALID_JURISDICTIONS = {"sg-pdpa", "th-pdpa", "id-pdp", "my-pdpa", "ph-dpa", "vn-pdpl"}
 GIT_TIMEOUT_SECONDS = 30
 
 PATH_RULES = [

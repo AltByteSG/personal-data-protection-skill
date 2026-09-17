@@ -6,6 +6,48 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
+— No unreleased changes.
+
+## [0.5.0] — 2026-09-17
+
+Adds **Vietnam** as the sixth populated jurisdiction, written against **Law No. 91/2025/QH15** (passed 26 June 2025, in force 1 January 2026) read with **Decree 356/2025/NĐ-CP** (31 December 2025). Vietnam had been deferred since v0.3 on the basis that the Personal Data Protection Law was still in draft; that Law is now in force and the Decree it was waiting on has replaced Decree 13/2023/NĐ-CP.
+
+### Added — Vietnam jurisdiction content
+
+- [`jurisdictions/vn-pdpl/README.md`](skills/personal-data-protection/jurisdictions/vn-pdpl/README.md) — statute metadata, critical thresholds, application note, engineering mental model, and the translation and source-copyright caveats.
+- [`jurisdictions/vn-pdpl/statute-map.md`](skills/personal-data-protection/jurisdictions/vn-pdpl/statute-map.md) — reverse lookup across all 39 Law articles and the operative Decree articles.
+- **Eight** obligation files under [`jurisdictions/vn-pdpl/obligations/`](skills/personal-data-protection/jurisdictions/vn-pdpl/obligations/). The eighth, `08-sector-specific.md`, has no counterpart in the other jurisdictions: Law Điều 24–32 and Decree Điều 8–12 impose duties by **sector and technology** — children, employment, health, finance, advertising, social media, big data, AI, blockchain, cloud, location, biometrics, public recording — rather than by lifecycle stage, and folding fourteen articles into the seven lifecycle files would have buried them.
+
+### Added — what differs from the other five jurisdictions
+
+- **Scope follows citizenship, not user location.** Điều 1(2)(c) reaches anyone processing the data of Vietnamese citizens, with no establishment, targeting or equipment test. `jurisdictions/_index.md` previously stated that active jurisdiction is decided by where users are located; that rule now carries an explicit Vietnam exception.
+- **Impact assessments must be *filed*, not merely held.** One original of the processing-impact dossier goes to the regulator within **60 days of first processing** (Điều 21(1)), and a separate cross-border dossier within **60 days of first transfer** (Điều 20(2)); both are refreshed 6-monthly (Điều 22). Every other regime here expects records to be retained, not submitted.
+- **Cross-border transfer is defined broadly enough to catch ordinary architecture.** Điều 20(1)(c) counts using any platform located outside Vietnam to process data collected in Vietnam.
+- **The sensitive-data list is the broadest here.** Decree Điều 4 covers positioning-service location, electronic-identification credentials and ID-card images, bank credentials, card data, transaction and credit history, and **behaviour-tracking data on telecom, social and online services** — which makes ordinary product analytics a sensitive-data pipeline. Basic data is residual (Decree Điều 3(11)), so there is no gap between the two catalogues.
+- **Breach notification runs 72 hours from *detection of the act*** (Điều 23(1)), with no assessment step, on a harm-based trigger that includes honour and dignity and has no scale threshold. Điều 23(3) separately makes purpose-creep and broken data-subject-rights paths notifiable in their own right — not only leaks.
+- **Data-protection personnel are required of every organisation** (Điều 33(2)), with no threshold; small, startup, household and micro entities get a transition under Điều 38(2)–(3), lost if they process sensitive data or data of a large number of subjects.
+- **Penalties reach 5% of revenue** for cross-border violations (Điều 8(4)) — the highest revenue-based cap in this skill — and **10× the gain** for buying or selling personal data (Điều 8(3)).
+- **Điều 37(1)(h)** makes preventing unauthorised collection from your own systems a controller duty, so rate limiting and enumeration defence become compliance measures.
+
+### Changed — cross-jurisdiction surfaces
+
+- [`jurisdictions/_index.md`](skills/personal-data-protection/jurisdictions/_index.md) — comparison grid extended to a sixth column across all 14 dimensions; status table flips `vn-pdpl` to populated; the strictest-rule paragraph now records Vietnam's 5% cap, its filing duty, and its sensitive-data breadth.
+- [`SKILL.md`](skills/personal-data-protection/SKILL.md), [`AGENTS.md`](AGENTS.md), [`README.md`](README.md) — Vietnam listed as populated; README's Sources section replaces the "planned for v0.5" note with the shipped entry.
+- All four checklists and [`templates/INCIDENT_RESPONSE.md.template`](skills/personal-data-protection/templates/INCIDENT_RESPONSE.md.template) — Vietnam rows and blocks added, including the Decree Điều 28 **Form No. 08** notification route.
+- [`scripts/pdp-check-changed-files.py`](scripts/pdp-check-changed-files.py) — `vn-pdpl` accepted as a jurisdiction code; a test pins that the code is `vn-pdpl` (a Law) and not the superseded `vn-pdpd` (a Decree).
+- [`DISCLAIMER.md`](DISCLAIMER.md) — Vietnam source entry added, recording that the texts consulted came from commercial legal databases rather than a government portal.
+
+### Statute coverage matrix
+
+| Jurisdiction | Statute version | Last verified |
+|---|---|---|
+| Singapore PDPA 2012 | Version in force as at 1 May 2026 (reflects 2020 Amendments) | 2026-05-02 |
+| Thailand PDPA B.E. 2562 (2019) | Original 2019 Government Gazette text (PDPC Thailand English translation) | 2026-05-03 |
+| Indonesia UU PDP No. 27/2022 | Original 2022 enactment (full enforcement from 17 Oct 2024) | 2026-05-03 |
+| Malaysia PDPA 2010 (Act 709) | Act 709 as amended by Act A1727 (all provisions in force as at 1 June 2025) | 2026-05-04 |
+| Philippines DPA 2012 (RA 10173) | RA 10173 read with the 2016 NPC IRR and operative NPC Circulars (16-03, 18-01, 2020-03, 2022-04) | 2026-05-14 |
+| Vietnam PDPL 91/2025/QH15 | Law 91/2025/QH15 read with Decree 356/2025/NĐ-CP; **Vietnamese binding text**, no official English translation | 2026-09-17 |
+
 ### Fixed — Vietnam status was out of date
 
 The repo stated in eight places that Vietnam's Personal Data Protection Law was still in draft, and pointed at Decree 13/2023/ND-CP as the instrument v0.5 would cover. Both had been overtaken by events:
@@ -173,7 +215,7 @@ Adds **Malaysia PDPA 2010 (with the 2024 Amendments — Act A1727)** as the four
 
 ### Added — divergence-table rows (engineering-affecting)
 
-The top-level [README divergence table](README.md#how-the-four-statutes-diverge--developer-view) gained two new rows in addition to the new Malaysia column:
+The top-level [README divergence table](README.md#how-the-six-statutes-diverge--developer-view) gained two new rows in addition to the new Malaysia column:
 
 - **"Is a B2B SaaS / processes personal data on behalf of other businesses"** — captures MY's new processor direct duty under s5(1A) (Security Principle, 1 April 2025) and s12A(2) (DPO appointment, 1 June 2025), against TH s40, ID Pasal 51–52, and SG's narrower data-intermediary regime.
 - **"Ships a new feature involving high-risk processing"** — captures ID's mandatory Pasal 34 DPIA as a pre-launch engineering gate (the only one of the four jurisdictions with a statutory DPIA requirement).
@@ -232,7 +274,7 @@ The MY draft was written to a stricter "engineering-first" rule than the SG/TH/I
 
 ### Where to look for the engineering-level divergences
 
-For the application-level divergences engineers need on a feature PR (consent UX, sensitive-data scope incl. biometric, retention/destroy, export + s43A portability, cross-border post-whitelist, 72h+7d breach lane, B2B-SaaS processor direct duty, mandatory DPIA in ID, accessibility-alternative consent in ID), see the developer-view divergence table in the top-level [`README.md`](README.md#how-the-four-statutes-diverge--developer-view).
+For the application-level divergences engineers need on a feature PR (consent UX, sensitive-data scope incl. biometric, retention/destroy, export + s43A portability, cross-border post-whitelist, 72h+7d breach lane, B2B-SaaS processor direct duty, mandatory DPIA in ID, accessibility-alternative consent in ID), see the developer-view divergence table in the top-level [`README.md`](README.md#how-the-six-statutes-diverge--developer-view).
 
 ## [0.2.2] — 2026-05-03
 
