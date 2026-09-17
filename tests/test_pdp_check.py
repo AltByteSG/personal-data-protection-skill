@@ -61,6 +61,32 @@ def test_date_of_birth_variants_are_detected():
         assert _matches(name), name
 
 
+def test_qualified_address_fields_are_detected():
+    for name in ("home_address", "shippingAddress", "billing_address", "mailing_address",
+                 "postal_address", "street_address", "email_address",
+                 "address_line1", "address_line_2"):
+        assert _matches(name), name
+
+
+def test_unqualified_address_does_not_match():
+    # Bare `address` matched ip_address, the address bar, and MAC addresses.
+    for name in ("ip_address", "address_bar", "memory_address", "macAddress", "addressable"):
+        assert not _matches(name), name
+
+
+def test_personal_data_notification_fields_are_detected():
+    for name in ("notification_preferences", "notificationSettings", "notification_consent",
+                 "notification_opt_in", "notificationOptOut", "push_token", "push_tokens"):
+        assert _matches(name), name
+
+
+def test_plumbing_notifications_do_not_match():
+    # Bare `notification` fired on every push/toast notification in a codebase.
+    for name in ("push_notification", "toast_notification", "notification_service",
+                 "sendNotification", "notification_queue", "notificationCenter"):
+        assert not _matches(name), name
+
+
 def test_unrelated_identifiers_do_not_match():
     for name in ("birthplace", "rebirth", "widget", "threadsafe",
                  "render_button", "http_client", "processing_time"):

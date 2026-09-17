@@ -57,11 +57,18 @@ PATH_RULES = [
 CONTENT_RULES = [
     (
         re.compile(
-            r"\b(consent|withdraw|privacy|personal data|pii|email|phone|address|"
+            r"\b(consent|withdraw|privacy|personal data|pii|email|phone|"
+            # `address` and `notification` alone matched ip_address, address bar,
+            # and every push/toast notification in the codebase. Both now need a
+            # personal-data qualifier. `email` above already covers email_address.
+            r"(home|shipping|billing|mailing|postal|street|delivery|residential)"
+            r"[\s_-]?address|address[\s_-]?line[\s_-]?\d*|"
+            r"notification[\s_-]?((preference|setting|consent|token)s?|"
+            r"opt[\s_-]?(in|out))|push[\s_-]?tokens?|"
             r"birthdate|birthday|birth|dob|passport|nric|national[\s_-]?id|"
             r"biometric|face[\s_-]?embedding|fingerprint|location|latitude|"
             r"longitude|retention|delete[\s_-]?account|export[\s_-]?user|"
-            r"data[\s_-]?export|audit[\s_-]?log|marketing|notification|"
+            r"data[\s_-]?export|audit[\s_-]?log|marketing|"
             r"processor|subprocessor|vendor|breach)\b",
             re.I,
         ),

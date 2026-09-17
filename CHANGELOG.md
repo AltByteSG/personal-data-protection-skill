@@ -6,6 +6,20 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
+### Changed — checklist execution order
+
+Both task checklists ran their jurisdiction review near the end, after the steps it should have shaped. An engineer following either linearly wrote the migration, then learned several steps later that the column needed encryption; or drafted privacy-policy copy before discovering MY s7(3) requires it bilingually and PH § 13 requires written consent captured before processing.
+
+- `skills/personal-data-protection/checklists/new-feature.md` — the jurisdiction-specific review moves from step 8 to step 2, so every layer review below it is jurisdiction-aware. The layer 02–07 reviews stay contiguous, shifted to steps 3–8. Added a short rationale naming the three obligations that change what you build rather than what you check afterwards.
+- `skills/personal-data-protection/checklists/new-data-field.md` — the jurisdiction check moves from step 9 to step 2. Step 10 ("Sensitive data extra steps") is dissolved into the steps that act on it: column-level encryption into the data-model step, access tightening into admin visibility, and the breach-assessment matrix entry into the jurisdiction step where notifiability thresholds are decided. Each keeps an explicit "If sensitive (step 1)" marker. The disclosure step gained a line tying it back to the jurisdiction-specific notice requirements. Now nine steps rather than ten; no checklist item was dropped.
+
+Earlier CHANGELOG entries refer to these checklists by their previous step numbers, which were accurate at the time of those releases.
+
+### Changed — scanner keyword precision
+
+- `scripts/pdp-check-changed-files.py` — `address` and `notification` matched bare, firing on `ip_address`, `address_bar`, `macAddress`, and every push or toast notification in a codebase. Both now require a personal-data qualifier: `home_address`, `shipping_address`, `billing_address`, `mailing_address`, `postal_address`, `street_address`, `address_line1` and `notification_preferences`, `notification_consent`, `notification_opt_in`, `push_token` all match, while the plumbing spellings no longer do. `email_address` was already covered by `email`.
+- `tests/test_pdp_check.py` — four new tests pin both directions of that change (22 total).
+
 ### Removed
 
 - `skills/personal-data-protection/jurisdictions/sg-pdpa/obligations/06-breach-notification.md` — dropped a leftover reference to a specific project ("High-risk PaoPao-style categories") in favour of neutral phrasing. Skill content carries no project-specific names.
