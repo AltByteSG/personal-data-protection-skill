@@ -6,7 +6,16 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
-— No unreleased changes.
+### Changed — marketplace renamed to match the repo
+
+The marketplace in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is now `personal-data-protection-skill` instead of `altbyte-plugins`, so it no longer clashes with other AltByte skill repos. Existing installs need to switch once:
+
+```bash
+claude plugin uninstall personal-data-protection@altbyte-plugins
+claude plugin marketplace remove altbyte-plugins
+claude plugin marketplace add AltByteSG/personal-data-protection-skill
+claude plugin install personal-data-protection@personal-data-protection-skill
+```
 
 ## [0.5.1] — 2026-09-17
 

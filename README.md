@@ -113,7 +113,7 @@ The repo is laid out for both Claude Code and Codex packaging — skill content 
 
 ```bash
 claude plugin marketplace add AltByteSG/personal-data-protection-skill
-claude plugin install personal-data-protection@altbyte-plugins
+claude plugin install personal-data-protection@personal-data-protection-skill
 ```
 
 The repo carries a [`marketplace.json`](.claude-plugin/marketplace.json) so it works as a single-plugin marketplace. Verify with `claude plugin list`.
