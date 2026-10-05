@@ -6,6 +6,12 @@ Each release records the statute versions reflected in the content. When a statu
 
 ## Unreleased
 
+— No unreleased changes.
+
+## [0.6.0] — 2026-10-05
+
+No statute content changed; this release only renames the marketplace.
+
 ### Changed — marketplace renamed to match the repo
 
 The marketplace in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) is now `personal-data-protection-skill` instead of `altbyte-plugins`, so it no longer clashes with other AltByte skill repos. Existing installs need to switch once:
