@@ -8,13 +8,13 @@ By installing, accessing, viewing, or otherwise using this skill, you acknowledg
 
 ## What this skill is
 
-- A working summary of personal-data-protection obligations as they apply to building and operating software systems in Singapore, Thailand, Indonesia, and Malaysia
+- A working summary of personal-data-protection obligations as they apply to building and operating software systems in Singapore, Thailand, Indonesia, Malaysia, the Philippines and Vietnam
 - A set of layered patterns and checklists that engineers can use when designing features, schemas, and operational processes
 - A collection of jurisdiction-specific notes mapping universal patterns to the relevant statute sections
 
 ## What this skill is **not**
 
-- **Not legal advice.** No attorney–client, solicitor–client, or any other professional advisory relationship is created by your use of this skill. The maintainers and contributors are not licensed to practise law in Singapore, Thailand, Indonesia, Malaysia, or any other jurisdiction.
+- **Not legal advice.** No attorney–client, solicitor–client, or any other professional advisory relationship is created by your use of this skill. The maintainers and contributors are not licensed to practise law in Singapore, Thailand, Indonesia, Malaysia, the Philippines, Vietnam, or any other jurisdiction.
 - **Not authoritative.** Where the content in this skill conflicts with the official statute, regulator guidance, or a court / regulator decision, **the official source wins.** The skill content is a summary written by engineers for engineers; it may be incomplete, inaccurate, or out of date.
 - **Not a guarantee of compliance.** Following the patterns and checklists in this skill does not by itself make your application compliant with any statute. Compliance is a fact-specific determination requiring qualified review of your particular processing activities.
 - **Not a substitute for professional review.** Decisions about whether your application complies with the law require the judgment of a qualified DPO, privacy counsel, or compliance professional who has reviewed your specific facts.

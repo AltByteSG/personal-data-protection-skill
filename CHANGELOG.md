@@ -8,6 +8,30 @@ Each release records the statute versions reflected in the content. When a statu
 
 — No unreleased changes.
 
+## [0.6.1] — 2026-10-06
+
+No statute content changed. This release brings the skill in line with Anthropic's current Agent Skills guidance and fixes two Vietnam omissions left over from 0.5.0.
+
+### Fixed — Vietnam missing from the skill description
+
+The `SKILL.md` description, which Claude reads to decide whether to load the skill, listed only five jurisdictions, so a Vietnam-only question might not trigger it. Vietnam PDPL (91/2025/QH15) is now named there, in both plugin manifests, the marketplace entry, the README audience line, the SKILL.md introduction and the disclaimer.
+
+### Fixed — critical-thresholds table header
+
+The header row of the "Critical thresholds" table in `SKILL.md` and `AGENTS.md` ended in `|---|`, so the Vietnam column rendered with `---` as its heading. It now reads "Vietnam PDPL".
+
+### Changed — links work wherever the skill folder is installed
+
+Links from inside `skills/personal-data-protection/` to files outside it (`DISCLAIMER.md`, `CHANGELOG.md` and similar) used relative `../../` paths. Those resolve in a git checkout or a Claude Code plugin install, but not when only the skill folder is uploaded, as claude.ai and the Claude API skills endpoint do. They now point to the files on GitHub.
+
+### Changed — every reference file is one hop from SKILL.md
+
+Anthropic's skill-authoring guidance asks for reference files to be linked directly from `SKILL.md`, because Claude may read nested files only partially. `SKILL.md` and `AGENTS.md` now carry a table that links each jurisdiction's README, statute map and obligation files, plus the two templates.
+
+### Changed — contents lists on long files
+
+Every reference file over 100 lines (32 files: layers, obligation files, statute maps, the new-feature checklist and the incident-response template) now opens with a contents list, so a partial read still shows the file's full scope.
+
 ## [0.6.0] — 2026-10-05
 
 No statute content changed; this release only renames the marketplace.
